@@ -1,0 +1,1248 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vikalp Physiotherapy - Get Rid of Pain Without Surgery</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+  :root {
+    --primary: #0EA5E9;
+    --primary-dark: #0284C7;
+    --secondary: #14B8A6;
+    --accent: #10B981;
+    --white: #ffffff;
+    --light-bg: #F0F9FF;
+    --grey: #F8FAFC;
+    --text: #1E293B;
+    --text-light: #64748B;
+    --border: #E2E8F0;
+    --gradient: linear-gradient(135deg, #0EA5E9 0%, #14B8A6 100%);
+    --shadow: 0 4px 24px rgba(14,165,233,0.12);
+    --shadow-lg: 0 8px 40px rgba(14,165,233,0.18);
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family:'Inter',sans-serif; color:var(--text); background:#fff; overflow-x:hidden; }
+  h1,h2,h3,h4,h5 { font-family:'Poppins',sans-serif; }
+
+  /* ===== NAVBAR ===== */
+  .navbar {
+    position:fixed; top:0; width:100%; background:rgba(255,255,255,0.97);
+    backdrop-filter:blur(12px); z-index:1000; border-bottom:1px solid var(--border);
+    box-shadow:0 2px 20px rgba(0,0,0,0.06);
+  }
+  .nav-inner { max-width:1280px; margin:0 auto; padding:0 24px; display:flex; align-items:center; justify-content:space-between; height:70px; }
+  .logo { display:flex; align-items:center; gap:12px; text-decoration:none; }
+  .logo-icon { width:44px; height:44px; background:var(--gradient); border-radius:12px; display:flex; align-items:center; justify-content:center; }
+  .logo-icon i { color:#fff; font-size:20px; }
+  .logo-text { display:flex; flex-direction:column; }
+  .logo-name { font-family:'Poppins',sans-serif; font-weight:800; font-size:18px; color:var(--text); line-height:1.1; }
+  .logo-sub { font-size:10px; color:var(--primary); font-weight:600; letter-spacing:1px; text-transform:uppercase; }
+  .nav-links { display:flex; align-items:center; gap:6px; }
+  .nav-links a { text-decoration:none; color:var(--text); font-weight:500; font-size:13.5px; padding:8px 14px; border-radius:8px; transition:all .2s; }
+  .nav-links a:hover { background:var(--light-bg); color:var(--primary); }
+  .nav-cta { display:flex; gap:10px; }
+  .btn { display:inline-flex; align-items:center; gap:8px; padding:10px 20px; border-radius:10px; font-weight:600; font-size:14px; cursor:pointer; border:none; transition:all .2s; text-decoration:none; font-family:'Poppins',sans-serif; }
+  .btn-primary { background:var(--gradient); color:#fff; box-shadow:0 4px 14px rgba(14,165,233,0.35); }
+  .btn-primary:hover { transform:translateY(-2px); box-shadow:0 6px 20px rgba(14,165,233,0.45); }
+  .btn-outline { background:transparent; color:var(--primary); border:2px solid var(--primary); }
+  .btn-outline:hover { background:var(--primary); color:#fff; }
+  .btn-whatsapp { background:#25D366; color:#fff; }
+  .btn-whatsapp:hover { background:#20b858; }
+  .hamburger { display:none; flex-direction:column; cursor:pointer; gap:5px; }
+  .hamburger span { width:24px; height:2.5px; background:var(--text); border-radius:2px; transition:.3s; }
+
+  /* ===== HERO ===== */
+  .hero {
+    min-height:100vh; padding-top:70px;
+    background: linear-gradient(145deg, #EFF9FF 0%, #F0FDFA 60%, #ECFDF5 100%);
+    display:flex; align-items:center; position:relative; overflow:hidden;
+  }
+  .hero::before {
+    content:''; position:absolute; top:-100px; right:-100px;
+    width:600px; height:600px;
+    background: radial-gradient(circle, rgba(14,165,233,0.08) 0%, transparent 70%);
+    border-radius:50%;
+  }
+  .hero::after {
+    content:''; position:absolute; bottom:-150px; left:-100px;
+    width:500px; height:500px;
+    background: radial-gradient(circle, rgba(20,184,166,0.08) 0%, transparent 70%);
+    border-radius:50%;
+  }
+  .hero-inner { max-width:1280px; margin:0 auto; padding:60px 24px; display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; position:relative; z-index:1; }
+  .hero-badge { display:inline-flex; align-items:center; gap:8px; background:#fff; border:1.5px solid rgba(14,165,233,0.2); padding:6px 14px; border-radius:50px; font-size:12px; font-weight:600; color:var(--primary); margin-bottom:20px; box-shadow:0 2px 12px rgba(14,165,233,0.1); }
+  .hero-badge span { width:8px; height:8px; background:var(--accent); border-radius:50%; animation:pulse 2s infinite; }
+  @keyframes pulse { 0%,100%{transform:scale(1);opacity:1} 50%{transform:scale(1.4);opacity:.7} }
+  .hero h1 { font-size:52px; font-weight:900; line-height:1.15; color:var(--text); margin-bottom:16px; }
+  .hero h1 span { background:var(--gradient); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+  .hero-sub { font-size:18px; color:var(--text-light); line-height:1.7; margin-bottom:32px; max-width:480px; }
+  .hero-btns { display:flex; flex-wrap:wrap; gap:12px; margin-bottom:40px; }
+  .hero-stats { display:flex; gap:32px; flex-wrap:wrap; }
+  .stat-mini { text-align:center; }
+  .stat-mini .num { font-family:'Poppins',sans-serif; font-size:22px; font-weight:800; color:var(--primary); }
+  .stat-mini .lbl { font-size:11px; color:var(--text-light); font-weight:500; }
+  .hero-visual { position:relative; display:flex; justify-content:center; align-items:center; }
+  .hero-card-main {
+    background:#fff; border-radius:24px; padding:32px; box-shadow:var(--shadow-lg);
+    position:relative; text-align:center; max-width:380px; width:100%;
+  }
+  .hero-avatar { width:140px; height:140px; background:var(--gradient); border-radius:50%; margin:0 auto 16px; display:flex; align-items:center; justify-content:center; font-size:60px; color:#fff; box-shadow:0 8px 32px rgba(14,165,233,0.3); }
+  .hero-doc-name { font-family:'Poppins',sans-serif; font-weight:700; font-size:18px; color:var(--text); }
+  .hero-doc-spec { font-size:13px; color:var(--primary); font-weight:600; margin-bottom:16px; }
+  .hero-rating { display:flex; align-items:center; justify-content:center; gap:4px; }
+  .hero-rating i { color:#F59E0B; font-size:14px; }
+  .hero-rating span { font-size:13px; font-weight:600; color:var(--text-light); margin-left:4px; }
+  .floating-badge {
+    position:absolute; background:#fff; border-radius:16px; padding:12px 16px;
+    box-shadow:0 4px 20px rgba(0,0,0,0.12); display:flex; align-items:center; gap:10px;
+    font-size:12px; font-weight:600; white-space:nowrap;
+  }
+  .fb1 { top:-20px; right:-30px; color:var(--accent); }
+  .fb2 { bottom:20px; left:-40px; color:var(--primary); }
+  .fb-icon { width:32px; height:32px; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:15px; }
+  .fb1 .fb-icon { background:#ECFDF5; color:var(--accent); }
+  .fb2 .fb-icon { background:#EFF9FF; color:var(--primary); }
+
+  /* ===== SECTION COMMON ===== */
+  section { padding:80px 0; }
+  .container { max-width:1280px; margin:0 auto; padding:0 24px; }
+  .section-label { font-size:12px; font-weight:700; color:var(--primary); letter-spacing:2px; text-transform:uppercase; margin-bottom:8px; }
+  .section-title { font-size:36px; font-weight:800; color:var(--text); line-height:1.25; margin-bottom:16px; }
+  .section-sub { font-size:16px; color:var(--text-light); max-width:600px; line-height:1.7; }
+  .section-head { margin-bottom:48px; }
+  .text-center { text-align:center; }
+  .text-center .section-sub { margin:0 auto; }
+
+  /* ===== STATS ===== */
+  .stats-section { background:var(--gradient); padding:60px 0; }
+  .stats-grid { display:grid; grid-template-columns:repeat(5,1fr); gap:24px; align-items:center; }
+  .stat-card { text-align:center; color:#fff; }
+  .stat-card .big { font-family:'Poppins',sans-serif; font-size:42px; font-weight:900; line-height:1; }
+  .stat-card .sub { font-size:14px; font-weight:500; opacity:.85; margin-top:4px; }
+  .stat-divider { width:1px; height:60px; background:rgba(255,255,255,0.3); margin:0 auto; }
+  .stars { color:#FDE68A; font-size:18px; margin-bottom:4px; }
+
+  /* ===== SERVICES ===== */
+  .services-section { background:var(--grey); }
+  .services-grid { display:grid; grid-template-columns:repeat(5,1fr); gap:20px; }
+  .service-card {
+    background:#fff; border-radius:18px; padding:24px 20px;
+    box-shadow:0 2px 12px rgba(0,0,0,0.06); transition:all .3s; cursor:pointer;
+    border:2px solid transparent; text-align:center;
+  }
+  .service-card:hover { transform:translateY(-6px); border-color:var(--primary); box-shadow:var(--shadow); }
+  .service-icon { width:56px; height:56px; background:var(--light-bg); border-radius:14px; display:flex; align-items:center; justify-content:center; margin:0 auto 14px; font-size:24px; color:var(--primary); transition:.3s; }
+  .service-card:hover .service-icon { background:var(--gradient); color:#fff; }
+  .service-card h4 { font-size:14px; font-weight:700; color:var(--text); margin-bottom:8px; line-height:1.3; }
+  .service-card p { font-size:12px; color:var(--text-light); line-height:1.5; margin-bottom:14px; }
+  .service-card .btn-sm { font-size:11px; padding:6px 14px; border-radius:8px; background:var(--light-bg); color:var(--primary); font-weight:600; border:none; cursor:pointer; transition:.2s; font-family:'Poppins',sans-serif; }
+  .service-card:hover .btn-sm { background:var(--primary); color:#fff; }
+
+  /* ===== PAIN AREA ===== */
+  .pain-section { background:#fff; }
+  .pain-inner { display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; }
+  .body-map { position:relative; display:flex; justify-content:center; }
+  .body-svg { width:280px; position:relative; }
+  .body-area-btn {
+    position:absolute; width:36px; height:36px; border-radius:50%;
+    background:rgba(14,165,233,0.15); border:2px solid var(--primary);
+    cursor:pointer; display:flex; align-items:center; justify-content:center;
+    font-size:10px; font-weight:700; color:var(--primary);
+    transition:.2s; animation:ripple 2.5s infinite;
+  }
+  .body-area-btn:hover { background:var(--primary); color:#fff; transform:scale(1.15); }
+  .body-area-btn.active { background:var(--primary); color:#fff; }
+  @keyframes ripple {
+    0%{box-shadow:0 0 0 0 rgba(14,165,233,.4)}
+    70%{box-shadow:0 0 0 10px rgba(14,165,233,0)}
+    100%{box-shadow:0 0 0 0 rgba(14,165,233,0)}
+  }
+  .pain-details { }
+  .pain-result { background:var(--light-bg); border-radius:20px; padding:32px; border-left:4px solid var(--primary); }
+  .pain-result h3 { font-size:22px; font-weight:700; color:var(--text); margin-bottom:12px; }
+  .pain-result p { color:var(--text-light); line-height:1.7; margin-bottom:20px; }
+  .treatment-tags { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:20px; }
+  .tag { padding:6px 14px; border-radius:50px; background:#fff; border:1.5px solid var(--border); font-size:12px; font-weight:600; color:var(--text); }
+  .body-buttons-list { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-top:24px; }
+  .area-pill {
+    padding:10px 8px; border-radius:12px; background:var(--grey);
+    border:1.5px solid var(--border); text-align:center;
+    font-size:12px; font-weight:600; color:var(--text); cursor:pointer; transition:.2s;
+  }
+  .area-pill:hover, .area-pill.active { background:var(--primary); color:#fff; border-color:var(--primary); }
+
+  /* ===== WHY CHOOSE ===== */
+  .why-section { background:var(--light-bg); }
+  .why-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:24px; }
+  .why-card { background:#fff; border-radius:18px; padding:28px 24px; box-shadow:0 2px 12px rgba(0,0,0,0.05); transition:.3s; }
+  .why-card:hover { transform:translateY(-4px); box-shadow:var(--shadow); }
+  .why-icon { width:50px; height:50px; border-radius:12px; background:var(--gradient); display:flex; align-items:center; justify-content:center; font-size:20px; color:#fff; margin-bottom:16px; }
+  .why-card h4 { font-size:15px; font-weight:700; color:var(--text); margin-bottom:8px; }
+  .why-card p { font-size:13px; color:var(--text-light); line-height:1.6; }
+
+  /* ===== HOME VISIT ===== */
+  .homevisit-section { background:#fff; }
+  .homevisit-banner { background:var(--gradient); border-radius:28px; padding:60px; display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:center; }
+  .homevisit-banner h2 { font-size:36px; font-weight:800; color:#fff; margin-bottom:12px; }
+  .homevisit-banner p { color:rgba(255,255,255,.85); font-size:16px; line-height:1.7; margin-bottom:24px; }
+  .steps-flow { display:flex; flex-direction:column; gap:16px; }
+  .step-item { display:flex; align-items:center; gap:16px; }
+  .step-num { width:40px; height:40px; border-radius:50%; background:rgba(255,255,255,.2); color:#fff; display:flex; align-items:center; justify-content:center; font-family:'Poppins',sans-serif; font-weight:800; font-size:16px; flex-shrink:0; border:2px solid rgba(255,255,255,.4); }
+  .step-text { color:#fff; font-size:14px; font-weight:500; }
+  .step-arrow { color:rgba(255,255,255,.5); font-size:12px; margin-left:auto; }
+
+  /* ===== CONDITIONS ===== */
+  .conditions-section { background:var(--grey); }
+  .conditions-grid { display:grid; grid-template-columns:repeat(6,1fr); gap:16px; }
+  .cond-card { background:#fff; border-radius:14px; padding:20px 16px; text-align:center; box-shadow:0 2px 8px rgba(0,0,0,.05); cursor:pointer; transition:.2s; border:1.5px solid transparent; }
+  .cond-card:hover { border-color:var(--primary); transform:translateY(-3px); }
+  .cond-card i { font-size:28px; color:var(--primary); margin-bottom:10px; display:block; }
+  .cond-card span { font-size:12px; font-weight:600; color:var(--text); }
+
+  /* ===== TREATMENTS ===== */
+  .treatment-section { background:#fff; }
+  .treatment-grid { display:grid; grid-template-columns:repeat(6,1fr); gap:20px; }
+  .treat-card { background:var(--light-bg); border-radius:16px; padding:24px 16px; text-align:center; transition:.3s; cursor:pointer; }
+  .treat-card:hover { background:var(--gradient); }
+  .treat-card:hover .treat-icon, .treat-card:hover span { color:#fff; }
+  .treat-icon { font-size:32px; color:var(--primary); margin-bottom:10px; display:block; transition:.3s; }
+  .treat-card span { font-size:13px; font-weight:600; color:var(--text); transition:.3s; }
+
+  /* ===== DOCTOR ===== */
+  .doctor-section { background:var(--gradient); }
+  .doctor-inner { display:grid; grid-template-columns:1fr 1.5fr; gap:60px; align-items:center; }
+  .doc-photo { text-align:center; }
+  .doc-avatar { width:220px; height:220px; border-radius:50%; background:rgba(255,255,255,.2); margin:0 auto 20px; display:flex; align-items:center; justify-content:center; font-size:90px; color:#fff; border:4px solid rgba(255,255,255,.4); }
+  .doc-name { font-family:'Poppins',sans-serif; font-size:24px; font-weight:800; color:#fff; margin-bottom:4px; }
+  .doc-title { color:rgba(255,255,255,.85); font-size:14px; }
+  .doc-info h2 { font-size:32px; font-weight:800; color:#fff; margin-bottom:8px; }
+  .doc-info p { color:rgba(255,255,255,.85); line-height:1.7; margin-bottom:24px; }
+  .doc-tags { display:flex; flex-wrap:wrap; gap:10px; margin-bottom:28px; }
+  .doc-tag { background:rgba(255,255,255,.2); color:#fff; padding:8px 16px; border-radius:50px; font-size:13px; font-weight:600; border:1px solid rgba(255,255,255,.3); }
+  .doc-quals { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:28px; }
+  .qual-item { background:rgba(255,255,255,.15); border-radius:12px; padding:14px; }
+  .qual-item .q-label { font-size:10px; color:rgba(255,255,255,.7); text-transform:uppercase; letter-spacing:1px; margin-bottom:4px; }
+  .qual-item .q-val { font-size:14px; font-weight:700; color:#fff; }
+
+  /* ===== REVIEWS ===== */
+  .reviews-section { background:var(--grey); }
+  .reviews-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+  .review-card { background:#fff; border-radius:20px; padding:28px; box-shadow:0 2px 12px rgba(0,0,0,.06); }
+  .review-stars { color:#F59E0B; margin-bottom:12px; }
+  .review-text { color:var(--text-light); line-height:1.7; font-size:14px; margin-bottom:20px; font-style:italic; }
+  .reviewer { display:flex; align-items:center; gap:12px; }
+  .rev-avatar { width:44px; height:44px; border-radius:50%; background:var(--gradient); display:flex; align-items:center; justify-content:center; color:#fff; font-family:'Poppins',sans-serif; font-weight:700; font-size:16px; }
+  .rev-name { font-weight:700; font-size:14px; color:var(--text); }
+  .rev-loc { font-size:12px; color:var(--text-light); }
+  .google-badge { display:inline-flex; align-items:center; gap:6px; background:#fff; border:1.5px solid var(--border); padding:6px 14px; border-radius:50px; font-size:12px; font-weight:600; color:var(--text); margin-top:8px; }
+
+  /* ===== GALLERY ===== */
+  .gallery-section { background:#fff; }
+  .gallery-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }
+  .gallery-item { border-radius:16px; overflow:hidden; position:relative; cursor:pointer; }
+  .gallery-item .gal-img { width:100%; height:180px; background:var(--light-bg); display:flex; align-items:center; justify-content:center; font-size:48px; color:var(--primary); transition:.3s; }
+  .gallery-item:hover .gal-img { transform:scale(1.05); }
+  .gallery-item .gal-overlay { position:absolute; inset:0; background:var(--gradient); opacity:0; display:flex; align-items:center; justify-content:center; transition:.3s; color:#fff; font-size:24px; }
+  .gallery-item:hover .gal-overlay { opacity:.7; }
+  .gal-label { padding:10px 14px; font-size:12px; font-weight:600; color:var(--text); background:#fff; border-top:1px solid var(--border); }
+
+  /* ===== PRICING ===== */
+  .pricing-section { background:var(--light-bg); }
+  .pricing-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:28px; }
+  .price-card { background:#fff; border-radius:24px; padding:36px 28px; box-shadow:0 2px 12px rgba(0,0,0,.06); border:2px solid transparent; text-align:center; transition:.3s; position:relative; }
+  .price-card:hover, .price-card.popular { border-color:var(--primary); box-shadow:var(--shadow); }
+  .price-badge { position:absolute; top:-12px; left:50%; transform:translateX(-50%); background:var(--gradient); color:#fff; padding:4px 20px; border-radius:50px; font-size:11px; font-weight:700; white-space:nowrap; }
+  .price-icon { width:64px; height:64px; background:var(--light-bg); border-radius:18px; margin:0 auto 20px; display:flex; align-items:center; justify-content:center; font-size:28px; color:var(--primary); }
+  .price-card.popular .price-icon { background:var(--gradient); color:#fff; }
+  .price-name { font-size:18px; font-weight:700; color:var(--text); margin-bottom:8px; }
+  .price-amount { font-size:40px; font-weight:900; color:var(--primary); font-family:'Poppins',sans-serif; }
+  .price-amount small { font-size:16px; font-weight:500; color:var(--text-light); }
+  .price-period { font-size:13px; color:var(--text-light); margin-bottom:24px; }
+  .price-features { list-style:none; text-align:left; margin-bottom:28px; display:flex; flex-direction:column; gap:10px; }
+  .price-features li { display:flex; align-items:center; gap:10px; font-size:13px; color:var(--text); }
+  .price-features li i { color:var(--accent); font-size:14px; }
+
+  /* ===== BOOKING ===== */
+  .booking-section { background:#fff; }
+  .booking-inner { display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:start; }
+  .booking-form { background:var(--grey); border-radius:24px; padding:40px; }
+  .booking-form h3 { font-size:24px; font-weight:700; color:var(--text); margin-bottom:8px; }
+  .booking-form p { color:var(--text-light); margin-bottom:28px; font-size:14px; }
+  .form-group { margin-bottom:18px; }
+  .form-label { display:block; font-size:13px; font-weight:600; color:var(--text); margin-bottom:8px; }
+  .form-input, .form-select, .form-textarea {
+    width:100%; padding:12px 16px; border-radius:12px; border:1.5px solid var(--border);
+    font-size:14px; font-family:'Inter',sans-serif; color:var(--text);
+    background:#fff; outline:none; transition:.2s;
+  }
+  .form-input:focus, .form-select:focus, .form-textarea:focus { border-color:var(--primary); box-shadow:0 0 0 3px rgba(14,165,233,0.1); }
+  .form-row { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  .form-textarea { resize:vertical; min-height:100px; }
+  .booking-info { }
+  .booking-info h2 { font-size:32px; font-weight:800; color:var(--text); margin-bottom:16px; }
+  .booking-info p { color:var(--text-light); line-height:1.7; margin-bottom:32px; }
+  .contact-cards { display:flex; flex-direction:column; gap:16px; }
+  .contact-card { display:flex; align-items:center; gap:16px; padding:20px; background:var(--grey); border-radius:16px; }
+  .contact-icon { width:48px; height:48px; border-radius:12px; background:var(--gradient); display:flex; align-items:center; justify-content:center; color:#fff; font-size:18px; flex-shrink:0; }
+  .contact-card h4 { font-size:14px; font-weight:700; color:var(--text); margin-bottom:2px; }
+  .contact-card p { font-size:13px; color:var(--text-light); }
+
+  /* ===== FAQ ===== */
+  .faq-section { background:var(--grey); }
+  .faq-grid { display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+  .faq-item { background:#fff; border-radius:16px; overflow:hidden; box-shadow:0 2px 8px rgba(0,0,0,.05); }
+  .faq-q { padding:20px 24px; display:flex; align-items:center; justify-content:space-between; cursor:pointer; font-weight:600; font-size:15px; color:var(--text); }
+  .faq-q i { color:var(--primary); font-size:12px; transition:.3s; }
+  .faq-a { padding:0 24px 20px; color:var(--text-light); font-size:14px; line-height:1.7; display:none; }
+  .faq-item.open .faq-a { display:block; }
+  .faq-item.open .faq-q i { transform:rotate(180deg); }
+  .faq-item.open .faq-q { color:var(--primary); }
+
+  /* ===== BLOG ===== */
+  .blog-section { background:#fff; }
+  .blog-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:28px; }
+  .blog-card { border-radius:20px; overflow:hidden; box-shadow:0 2px 12px rgba(0,0,0,.06); transition:.3s; cursor:pointer; }
+  .blog-card:hover { transform:translateY(-4px); box-shadow:var(--shadow); }
+  .blog-img { height:180px; background:var(--light-bg); display:flex; align-items:center; justify-content:center; font-size:48px; color:var(--primary); }
+  .blog-body { padding:24px; background:#fff; }
+  .blog-tag { display:inline-block; padding:4px 12px; background:var(--light-bg); color:var(--primary); border-radius:50px; font-size:11px; font-weight:700; margin-bottom:10px; }
+  .blog-body h4 { font-size:16px; font-weight:700; color:var(--text); margin-bottom:8px; line-height:1.4; }
+  .blog-body p { font-size:13px; color:var(--text-light); line-height:1.6; margin-bottom:12px; }
+  .blog-meta { display:flex; align-items:center; gap:12px; font-size:12px; color:var(--text-light); }
+
+  /* ===== EXERCISE LIBRARY ===== */
+  .exercise-section { background:var(--light-bg); }
+  .exercise-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:24px; }
+  .ex-card { background:#fff; border-radius:18px; overflow:hidden; box-shadow:0 2px 10px rgba(0,0,0,.05); }
+  .ex-thumb { height:140px; background:var(--light-bg); display:flex; align-items:center; justify-content:center; font-size:40px; color:var(--primary); position:relative; }
+  .ex-play { position:absolute; width:44px; height:44px; background:var(--gradient); border-radius:50%; display:flex; align-items:center; justify-content:center; color:#fff; font-size:16px; cursor:pointer; box-shadow:0 4px 14px rgba(14,165,233,.3); }
+  .ex-body { padding:16px; }
+  .ex-level { font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:var(--accent); margin-bottom:6px; }
+  .ex-body h4 { font-size:14px; font-weight:700; color:var(--text); margin-bottom:4px; }
+  .ex-body p { font-size:12px; color:var(--text-light); }
+  .ex-actions { display:flex; gap:8px; padding:12px 16px; border-top:1px solid var(--border); }
+  .ex-btn { flex:1; padding:7px; border-radius:8px; font-size:11px; font-weight:600; border:none; cursor:pointer; transition:.2s; font-family:'Poppins',sans-serif; }
+  .ex-btn-vid { background:var(--light-bg); color:var(--primary); }
+  .ex-btn-pdf { background:rgba(16,185,129,.1); color:var(--accent); }
+
+  /* ===== CONTACT/MAP ===== */
+  .contact-section { background:var(--grey); }
+  .contact-inner { display:grid; grid-template-columns:1.2fr 1fr; gap:48px; }
+  .map-placeholder { background:var(--light-bg); border-radius:20px; height:300px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:12px; border:2px dashed var(--border); }
+  .map-placeholder i { font-size:48px; color:var(--primary); }
+  .map-placeholder p { color:var(--text-light); font-size:14px; }
+  .hours-table { width:100%; border-collapse:collapse; margin-top:16px; }
+  .hours-table td { padding:10px 0; font-size:14px; border-bottom:1px solid var(--border); }
+  .hours-table td:first-child { color:var(--text); font-weight:600; }
+  .hours-table td:last-child { color:var(--primary); font-weight:600; text-align:right; }
+
+  /* ===== FOOTER ===== */
+  footer { background:#0F172A; color:#fff; padding:60px 0 24px; }
+  .footer-grid { display:grid; grid-template-columns:2fr 1fr 1fr 1.5fr; gap:48px; margin-bottom:48px; }
+  .footer-brand p { color:#94A3B8; font-size:14px; line-height:1.7; margin:16px 0 24px; }
+  .social-links { display:flex; gap:12px; }
+  .soc-btn { width:38px; height:38px; background:rgba(255,255,255,.1); border-radius:10px; display:flex; align-items:center; justify-content:center; color:#fff; font-size:15px; transition:.2s; cursor:pointer; text-decoration:none; }
+  .soc-btn:hover { background:var(--primary); }
+  footer h5 { font-size:14px; font-weight:700; margin-bottom:20px; color:#fff; }
+  .foot-links { list-style:none; display:flex; flex-direction:column; gap:10px; }
+  .foot-links a { color:#94A3B8; text-decoration:none; font-size:13px; transition:.2s; }
+  .foot-links a:hover { color:var(--primary); }
+  .footer-bottom { border-top:1px solid rgba(255,255,255,.1); padding-top:24px; display:flex; justify-content:space-between; align-items:center; }
+  .footer-bottom p { color:#64748B; font-size:13px; }
+
+  /* ===== FLOATING BUTTONS ===== */
+  .float-wa {
+    position:fixed; bottom:100px; right:28px; width:56px; height:56px;
+    background:#25D366; border-radius:50%; display:flex; align-items:center; justify-content:center;
+    color:#fff; font-size:26px; cursor:pointer; box-shadow:0 4px 20px rgba(37,211,102,.4);
+    z-index:999; transition:.2s; text-decoration:none;
+  }
+  .float-wa:hover { transform:scale(1.1); }
+  .float-call {
+    position:fixed; bottom:32px; right:28px; width:56px; height:56px;
+    background:var(--gradient); border-radius:50%; display:flex; align-items:center; justify-content:center;
+    color:#fff; font-size:22px; cursor:pointer; box-shadow:0 4px 20px rgba(14,165,233,.4);
+    z-index:999; transition:.2s; text-decoration:none;
+  }
+  .float-call:hover { transform:scale(1.1); }
+
+  /* ===== MODAL ===== */
+  .modal-overlay { display:none; position:fixed; inset:0; background:rgba(0,0,0,.5); z-index:2000; align-items:center; justify-content:center; }
+  .modal-overlay.open { display:flex; }
+  .modal { background:#fff; border-radius:24px; padding:40px; max-width:480px; width:90%; max-height:90vh; overflow-y:auto; position:relative; }
+  .modal-close { position:absolute; top:16px; right:16px; width:36px; height:36px; border-radius:10px; background:var(--grey); border:none; cursor:pointer; font-size:16px; color:var(--text); display:flex; align-items:center; justify-content:center; }
+  .modal h3 { font-size:22px; font-weight:700; color:var(--text); margin-bottom:6px; }
+  .modal-sub { color:var(--text-light); font-size:14px; margin-bottom:24px; }
+  .success-msg { text-align:center; padding:20px; }
+  .success-msg i { font-size:56px; color:var(--accent); margin-bottom:12px; }
+  .success-msg h3 { color:var(--text); margin-bottom:8px; }
+  .success-msg p { color:var(--text-light); font-size:14px; }
+
+  /* ===== TOAST ===== */
+  .toast { position:fixed; top:90px; right:28px; background:#fff; border-radius:14px; padding:16px 20px; box-shadow:0 4px 24px rgba(0,0,0,.12); display:flex; align-items:center; gap:12px; z-index:3000; transform:translateX(120%); transition:.4s; border-left:4px solid var(--accent); }
+  .toast.show { transform:translateX(0); }
+  .toast i { color:var(--accent); font-size:20px; }
+  .toast p { font-size:14px; font-weight:600; color:var(--text); }
+
+  /* ===== MOBILE NAV ===== */
+  .mobile-menu { display:none; position:fixed; inset:0; background:#fff; z-index:999; padding:90px 24px 40px; flex-direction:column; gap:12px; overflow-y:auto; }
+  .mobile-menu.open { display:flex; }
+  .mobile-menu a { text-decoration:none; color:var(--text); font-weight:500; padding:14px 16px; border-radius:12px; font-size:16px; border-bottom:1px solid var(--border); }
+
+  /* ===== RESPONSIVE ===== */
+  @media(max-width:1024px) {
+    .services-grid { grid-template-columns:repeat(3,1fr); }
+    .stats-grid { grid-template-columns:repeat(3,1fr); }
+    .why-grid { grid-template-columns:repeat(2,1fr); }
+    .conditions-grid { grid-template-columns:repeat(3,1fr); }
+    .treatment-grid { grid-template-columns:repeat(3,1fr); }
+    .gallery-grid { grid-template-columns:repeat(2,1fr); }
+    .exercise-grid { grid-template-columns:repeat(2,1fr); }
+    .blog-grid { grid-template-columns:repeat(2,1fr); }
+    .footer-grid { grid-template-columns:1fr 1fr; }
+  }
+  @media(max-width:768px) {
+    .hero-inner { grid-template-columns:1fr; gap:40px; }
+    .hero h1 { font-size:36px; }
+    .hero-visual { display:none; }
+    .nav-links, .nav-cta { display:none; }
+    .hamburger { display:flex; }
+    .pain-inner { grid-template-columns:1fr; }
+    .homevisit-banner { grid-template-columns:1fr; padding:36px; }
+    .doctor-inner { grid-template-columns:1fr; }
+    .booking-inner { grid-template-columns:1fr; }
+    .services-grid { grid-template-columns:repeat(2,1fr); }
+    .conditions-grid { grid-template-columns:repeat(2,1fr); }
+    .treatment-grid { grid-template-columns:repeat(2,1fr); }
+    .reviews-grid { grid-template-columns:1fr; }
+    .pricing-grid { grid-template-columns:1fr; }
+    .faq-grid { grid-template-columns:1fr; }
+    .blog-grid { grid-template-columns:1fr; }
+    .exercise-grid { grid-template-columns:1fr 1fr; }
+    .contact-inner { grid-template-columns:1fr; }
+    .footer-grid { grid-template-columns:1fr; gap:32px; }
+    .footer-bottom { flex-direction:column; gap:12px; text-align:center; }
+    .section-title { font-size:26px; }
+    .stats-grid { grid-template-columns:repeat(2,1fr); }
+    .stat-divider { display:none; }
+    .form-row { grid-template-columns:1fr; }
+    .why-grid { grid-template-columns:1fr; }
+    .body-buttons-list { grid-template-columns:repeat(2,1fr); }
+    .doc-quals { grid-template-columns:1fr; }
+    .gallery-grid { grid-template-columns:1fr 1fr; }
+  }
+  @media(max-width:480px) {
+    .nav-inner { padding:0 14px; }
+    .logo-name { font-size:16px; }
+    .hero-inner { padding:40px 16px; }
+    .hero h1 { font-size:28px; }
+    .hero-sub { font-size:15px; }
+    .hero-btns { flex-direction:column; align-items:stretch; }
+    .hero-btns .btn { justify-content:center; width:100%; }
+    .hero-stats { gap:18px; }
+    .container { padding:0 16px; }
+    section { padding:56px 0; }
+    .section-title { font-size:22px; }
+    .services-grid, .conditions-grid, .treatment-grid, .exercise-grid, .gallery-grid { grid-template-columns:1fr; }
+    .stats-grid { grid-template-columns:repeat(2,1fr); gap:16px; }
+    .stat-card .big { font-size:32px; }
+    .body-buttons-list { grid-template-columns:1fr; }
+    .modal { padding:24px; }
+    .float-wa, .float-call { width:48px; height:48px; font-size:20px; right:16px; }
+    .float-wa { bottom:84px; }
+    .float-call { bottom:24px; }
+    .toast { right:16px; left:16px; }
+    .contact-cards { grid-template-columns:1fr; }
+  }
+  html, body { max-width:100%; overflow-x:hidden; }
+  img, svg { max-width:100%; height:auto; }
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="#" class="logo">
+      <div class="logo-icon"><i class="fas fa-hand-holding-heart"></i></div>
+      <div class="logo-text">
+        <span class="logo-name">Vikalp</span>
+        <span class="logo-sub">Physiotherapy</span>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#conditions">Conditions</a>
+      <a href="#doctor">Doctor</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#blog">Blog</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="nav-cta">
+      <a href="tel:+916207959126" class="btn btn-outline"><i class="fas fa-phone"></i> Call</a>
+      <a href="tel:+916207959126" class="btn btn-primary"><i class="fas fa-phone"></i> Call Now</a>
+    </div>
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#services" onclick="toggleMenu()">Services</a>
+  <a href="#conditions" onclick="toggleMenu()">Conditions</a>
+  <a href="#pain-area" onclick="toggleMenu()">Pain Area</a>
+  <a href="#doctor" onclick="toggleMenu()">Our Doctor</a>
+  <a href="#pricing" onclick="toggleMenu()">Pricing</a>
+  <a href="#blog" onclick="toggleMenu()">Blog</a>
+  <a href="tel:+916207959126" onclick="toggleMenu()">Call Now</a>
+  <a href="#contact" onclick="toggleMenu()">Contact</a>
+  <a href="https://wa.me/916207959126?text=Hi%2C%20I%20want%20to%20book%20a%20physiotherapy%20appointment" onclick="toggleMenu()">WhatsApp Us</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-badge"><span></span> Hajipur & Patna ka #1 Physiotherapy Clinic</div>
+      <h1>Dard se Mukti,<br><span>Bina Surgery ke</span></h1>
+      <p class="hero-sub">Professional Physiotherapy at Clinic & Home Visit. Certified therapists, modern equipment, personalized care — recovery starts here.</p>
+      <div class="hero-btns">
+        <a href="https://wa.me/916207959126?text=Hi%2C%20I%20want%20to%20book%20a%20physiotherapy%20appointment" class="btn btn-primary"><i class="fab fa-whatsapp"></i> WhatsApp Karein</a>
+        <a href="#homevisit" class="btn btn-outline"><i class="fas fa-home"></i> Home Visit</a>
+        <a href="https://wa.me/916207959126?text=Hi%2C%20I%20want%20to%20book%20a%20physiotherapy%20appointment" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-mini"><div class="num">5000+</div><div class="lbl">Patients</div></div>
+        <div class="stat-mini"><div class="num">10+</div><div class="lbl">Years Exp.</div></div>
+        <div class="stat-mini"><div class="num">98%</div><div class="lbl">Recovery</div></div>
+        <div class="stat-mini"><div class="num">24×7</div><div class="lbl">Support</div></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-card-main">
+        <div class="hero-avatar"><i class="fas fa-user-md"></i></div>
+        <div class="hero-doc-name">Dr. Rajan Kumar, PT</div>
+        <div class="hero-doc-spec">Senior Physiotherapist — BPT, MPT</div>
+        <div class="hero-rating">
+          <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          <span>4.9 (850+ Reviews)</span>
+        </div>
+        <div class="floating-badge fb1">
+          <div class="fb-icon"><i class="fas fa-check-circle"></i></div>
+          <div><div style="font-size:10px;color:#64748B">Recovery Rate</div><div style="font-size:14px;color:#10B981;font-family:'Poppins',sans-serif;font-weight:800;">98%</div></div>
+        </div>
+        <div class="floating-badge fb2">
+          <div class="fb-icon"><i class="fas fa-home"></i></div>
+          <div><div style="font-size:10px;color:#64748B">Home Visit</div><div style="font-size:14px;color:#0EA5E9;font-family:'Poppins',sans-serif;font-weight:800;">Available</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats-section">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stars">★★★★★</div>
+        <div class="big">4.9</div>
+        <div class="sub">Google Rating</div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-card">
+        <div class="big">5000+</div>
+        <div class="sub">Patients Treated</div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-card">
+        <div class="big">10+</div>
+        <div class="sub">Years Experience</div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-card">
+        <div class="big">98%</div>
+        <div class="sub">Recovery Rate</div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-card">
+        <div class="big">24×7</div>
+        <div class="sub">Home Visit Available</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services-section" id="services">
+  <div class="container">
+    <div class="section-head text-center">
+      <div class="section-label">Our Services</div>
+      <h2 class="section-title">Hum Kya Treat Karte Hain</h2>
+      <p class="section-sub">Har condition ke liye specialized physiotherapy — clinic visit ya home visit, dono options available hain.</p>
+    </div>
+    <div class="services-grid" id="servicesGrid"></div>
+  </div>
+</section>
+
+<!-- PAIN AREA -->
+<section class="pain-section" id="pain-area">
+  <div class="container">
+    <div class="section-head text-center">
+      <div class="section-label">Pain Locator</div>
+      <h2 class="section-title">Apna Dard Wala Area Select Karein</h2>
+      <p class="section-sub">Body ke jis part mein dard hai, uspe click karein aur trant treatment options dekhein.</p>
+    </div>
+    <div class="pain-inner">
+      <div>
+        <div class="body-buttons-list">
+          <div class="area-pill active" onclick="selectArea('head')">🧠 Head</div>
+          <div class="area-pill" onclick="selectArea('neck')">🦴 Neck</div>
+          <div class="area-pill" onclick="selectArea('shoulder')">💪 Shoulder</div>
+          <div class="area-pill" onclick="selectArea('elbow')">🦾 Elbow</div>
+          <div class="area-pill" onclick="selectArea('back')">🔙 Back</div>
+          <div class="area-pill" onclick="selectArea('hip')">🦵 Hip</div>
+          <div class="area-pill" onclick="selectArea('knee')">🦿 Knee</div>
+          <div class="area-pill" onclick="selectArea('ankle')">🦶 Ankle</div>
+          <div class="area-pill" onclick="selectArea('wrist')">✋ Wrist</div>
+        </div>
+        <div style="margin-top:32px; background:var(--light-bg); border-radius:20px; padding:28px; text-align:center;">
+          <svg viewBox="0 0 120 260" width="140" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="60" cy="28" rx="18" ry="20" fill="#E0F2FE" stroke="#0EA5E9" stroke-width="2"/>
+            <rect x="42" y="48" width="36" height="55" rx="10" fill="#BAE6FD" stroke="#0EA5E9" stroke-width="2"/>
+            <line x1="42" y1="55" x2="18" y2="110" stroke="#0EA5E9" stroke-width="9" stroke-linecap="round"/>
+            <line x1="78" y1="55" x2="102" y2="110" stroke="#0EA5E9" stroke-width="9" stroke-linecap="round"/>
+            <rect x="43" y="100" width="16" height="65" rx="8" fill="#BAE6FD" stroke="#0EA5E9" stroke-width="2"/>
+            <rect x="61" y="100" width="16" height="65" rx="8" fill="#BAE6FD" stroke="#0EA5E9" stroke-width="2"/>
+            <line x1="50" y1="165" x2="46" y2="200" stroke="#0EA5E9" stroke-width="9" stroke-linecap="round"/>
+            <line x1="70" y1="165" x2="74" y2="200" stroke="#0EA5E9" stroke-width="9" stroke-linecap="round"/>
+          </svg>
+          <p style="font-size:12px;color:var(--text-light);margin-top:12px;">Body diagram — oopar se area select karein</p>
+        </div>
+      </div>
+      <div class="pain-details">
+        <div class="pain-result" id="painResult">
+          <h3 id="painTitle">🧠 Sir / Sar Dard</h3>
+          <p id="painDesc">Tension headache, migraine, aur cervicogenic headache ke liye physiotherapy mein specialized techniques use ki jaati hain. Manual therapy aur posture correction se permanent relief milti hai.</p>
+          <div class="treatment-tags" id="painTags">
+            <span class="tag">Manual Therapy</span>
+            <span class="tag">Posture Correction</span>
+            <span class="tag">Relaxation Techniques</span>
+            <span class="tag">IFT Therapy</span>
+          </div>
+          <a href="tel:+916207959126" class="btn btn-primary" style="width:100%;justify-content:center;"><i class="fas fa-phone"></i> Is Condition ke liye Call Karein</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY CHOOSE US -->
+<section class="why-section">
+  <div class="container">
+    <div class="section-head text-center">
+      <div class="section-label">Why Us</div>
+      <h2 class="section-title">Hamen Kyun Chunein</h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-card"><div class="why-icon"><i class="fas fa-certificate"></i></div><h4>Certified Physiotherapist</h4><p>BPT, MPT certified therapists with specialization in orthopedic and neurological conditions.</p></div>
+      <div class="why-card"><div class="why-icon"><i class="fas fa-home"></i></div><h4>Home Visit Available</h4><p>Hamare certified therapist aapke ghar aake treatment denge. Same day booking available.</p></div>
+      <div class="why-card"><div class="why-icon"><i class="fas fa-user-check"></i></div><h4>Personalized Treatment</h4><p>Har patient ke liye alag treatment plan taiyar kiya jaata hai based on their specific condition.</p></div>
+      <div class="why-card"><div class="why-icon"><i class="fas fa-rupee-sign"></i></div><h4>Affordable Fees</h4><p>Best quality physiotherapy at affordable rates. Senior citizen discounts available.</p></div>
+      <div class="why-card"><div class="why-icon"><i class="fas fa-tools"></i></div><h4>Modern Equipment</h4><p>IFT, Ultrasound, TENS, Laser Therapy aur aur bahut kuch — latest equipment se treatment.</p></div>
+      <div class="why-card"><div class="why-icon"><i class="fas fa-dumbbell"></i></div><h4>Exercise Guidance</h4><p>Personalized exercise plan with video guidance jo aap ghar par bhi follow kar saken.</p></div>
+      <div class="why-card"><div class="why-icon"><i class="fas fa-file-medical-alt"></i></div><h4>Digital Reports</h4><p>Apne progress ko track karein — digital reports aur prescriptions directly aapke phone par.</p></div>
+      <div class="why-card"><div class="why-icon"><i class="fas fa-headset"></i></div><h4>24×7 Support</h4><p>WhatsApp par kabhi bhi message karein — hamare team 24×7 aapki help ke liye available hai.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- HOME VISIT -->
+<section class="homevisit-section" id="homevisit">
+  <div class="container">
+    <div class="homevisit-banner">
+      <div>
+        <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.2);padding:6px 16px;border-radius:50px;font-size:12px;font-weight:700;color:#fff;margin-bottom:20px;border:1px solid rgba(255,255,255,.3);">
+          <i class="fas fa-home"></i> Home Visit Service
+        </div>
+        <h2>Physiotherapist Ab Aapke Ghar Ayenge</h2>
+        <p>Mobility limitation ya bahar jaane mein dikkat? Koi baat nahi — hum aayenge aapke ghar, clinic jaisi puri treatment ghar par hi milegi.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:10px;margin-bottom:28px;">
+          <span style="background:rgba(255,255,255,.2);color:#fff;padding:7px 16px;border-radius:50px;font-size:13px;font-weight:600;">✓ Same Day Booking</span>
+          <span style="background:rgba(255,255,255,.2);color:#fff;padding:7px 16px;border-radius:50px;font-size:13px;font-weight:600;">✓ All Equipment Carried</span>
+          <span style="background:rgba(255,255,255,.2);color:#fff;padding:7px 16px;border-radius:50px;font-size:13px;font-weight:600;">✓ Hajipur + Patna</span>
+        </div>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;">
+          <a href="https://wa.me/916207959126?text=Hi%2C%20I%20want%20to%20book%20a%20physiotherapy%20appointment" class="btn" style="background:#fff;color:var(--primary);font-weight:700;"><i class="fab fa-whatsapp"></i> Home Visit ke liye WhatsApp Karein</a>
+          <a href="https://wa.me/916207959126?text=Hi%2C%20I%20want%20to%20book%20a%20physiotherapy%20appointment" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp Karein</a>
+        </div>
+      </div>
+      <div class="steps-flow">
+        <div class="step-item"><div class="step-num">1</div><div class="step-text"><strong>Call ya WhatsApp Karein</strong> — Apni condition batayein</div></div>
+        <div class="step-item" style="padding-left:20px;"><i class="fas fa-arrow-down" style="color:rgba(255,255,255,.4);"></i></div>
+        <div class="step-item"><div class="step-num">2</div><div class="step-text"><strong>Therapist Assigned</strong> — Certified specialist assign hoga</div></div>
+        <div class="step-item" style="padding-left:20px;"><i class="fas fa-arrow-down" style="color:rgba(255,255,255,.4);"></i></div>
+        <div class="step-item"><div class="step-num">3</div><div class="step-text"><strong>Ghar Par Visit</strong> — Therapist equipment ke saath aayega</div></div>
+        <div class="step-item" style="padding-left:20px;"><i class="fas fa-arrow-down" style="color:rgba(255,255,255,.4);"></i></div>
+        <div class="step-item"><div class="step-num">4</div><div class="step-text"><strong>Assessment</strong> — Detailed diagnosis</div></div>
+        <div class="step-item" style="padding-left:20px;"><i class="fas fa-arrow-down" style="color:rgba(255,255,255,.4);"></i></div>
+        <div class="step-item"><div class="step-num">5</div><div class="step-text"><strong>Therapy Session</strong> — Full treatment</div></div>
+        <div class="step-item" style="padding-left:20px;"><i class="fas fa-arrow-down" style="color:rgba(255,255,255,.4);"></i></div>
+        <div class="step-item"><div class="step-num">6</div><div class="step-text"><strong>Recovery Plan</strong> — Home exercise guide</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONDITIONS -->
+<section class="conditions-section" id="conditions">
+  <div class="container">
+    <div class="section-head text-center">
+      <div class="section-label">Conditions</div>
+      <h2 class="section-title">Jinhe Hum Treat Karte Hain</h2>
+    </div>
+    <div class="conditions-grid" id="conditionsGrid"></div>
+  </div>
+</section>
+
+<!-- TREATMENTS -->
+<section class="treatment-section">
+  <div class="container">
+    <div class="section-head text-center">
+      <div class="section-label">Treatment Methods</div>
+      <h2 class="section-title">Hamare Treatment Techniques</h2>
+      <p class="section-sub">Advanced physiotherapy techniques jo pain relief aur faster recovery ensure karte hain.</p>
+    </div>
+    <div class="treatment-grid" id="treatmentGrid"></div>
+  </div>
+</section>
+
+<!-- DOCTOR -->
+<section class="doctor-section" id="doctor">
+  <div class="container">
+    <div class="doctor-inner">
+      <div class="doc-photo">
+        <div class="doc-avatar"><i class="fas fa-user-md"></i></div>
+        <div class="doc-name">Dr. Rajan Kumar</div>
+        <div class="doc-title">Senior Physiotherapist</div>
+        <div style="margin-top:16px;">
+          <div class="google-badge" style="background:rgba(255,255,255,.2);border-color:rgba(255,255,255,.3);color:#fff;">
+            <i class="fas fa-star" style="color:#FDE68A;"></i> 4.9 Rating — 850+ Reviews
+          </div>
+        </div>
+      </div>
+      <div class="doc-info">
+        <div class="section-label" style="color:rgba(255,255,255,.7);">Meet Our Expert</div>
+        <h2>Experienced Physiotherapist Hajipur Mein</h2>
+        <p>10+ saalon ka experience le ke hum aapki har pain condition ko precisely diagnose aur treat karte hain. Specialist in orthopedic, neurological aur sports physiotherapy.</p>
+        <div class="doc-quals">
+          <div class="qual-item"><div class="q-label">Qualification</div><div class="q-val">BPT, MPT (Ortho)</div></div>
+          <div class="qual-item"><div class="q-label">Experience</div><div class="q-val">10+ Years</div></div>
+          <div class="qual-item"><div class="q-label">Specialization</div><div class="q-val">Ortho & Neuro</div></div>
+          <div class="qual-item"><div class="q-label">Languages</div><div class="q-val">Hindi, English</div></div>
+        </div>
+        <div class="doc-tags">
+          <span class="doc-tag">Certified Physiotherapist</span>
+          <span class="doc-tag">Sports Injury Expert</span>
+          <span class="doc-tag">Neuro Rehab</span>
+          <span class="doc-tag">Manual Therapy</span>
+          <span class="doc-tag">Dry Needling</span>
+        </div>
+        <a href="tel:+916207959126" class="btn" style="background:#fff;color:var(--primary);font-weight:700;">
+          <i class="fas fa-phone"></i> Call Karein
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews-section">
+  <div class="container">
+    <div class="section-head text-center">
+      <div class="section-label">Patient Reviews</div>
+      <h2 class="section-title">Hamare Patients Kya Kehte Hain</h2>
+      <div class="google-badge" style="display:inline-flex;margin-top:8px;">
+        <i class="fab fa-google" style="color:#4285F4;"></i> Google par 4.9 ⭐ — 850+ Reviews
+      </div>
+    </div>
+    <div class="reviews-grid" id="reviewsGrid"></div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery-section">
+  <div class="container">
+    <div class="section-head text-center">
+      <div class="section-label">Gallery</div>
+      <h2 class="section-title">Hamari Clinic Dekhen</h2>
+    </div>
+    <div class="gallery-grid" id="galleryGrid"></div>
+  </div>
+</section>
+
+<!-- EXERCISE LIBRARY -->
+<section class="exercise-section">
+  <div class="container">
+    <div class="section-head text-center">
+      <div class="section-label">Exercise Library</div>
+      <h2 class="section-title">Free Exercise Videos & PDFs</h2>
+      <p class="section-sub">Expert-guided exercises ghar par karein aur faster recovery hasil karein.</p>
+    </div>
+    <div class="exercise-grid" id="exerciseGrid"></div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing-section" id="pricing">
+  <div class="container">
+    <div class="section-head text-center">
+      <div class="section-label">Pricing</div>
+      <h2 class="section-title">Transparent & Affordable Fees</h2>
+      <p class="section-sub">Koi hidden charges nahi — clear pricing, senior citizen discount available.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="price-card">
+        <div class="price-icon"><i class="fas fa-stethoscope"></i></div>
+        <div class="price-name">Consultation</div>
+        <div class="price-amount">₹200<small>/session</small></div>
+        <div class="price-period">First Visit Assessment</div>
+        <ul class="price-features">
+          <li><i class="fas fa-check-circle"></i> Complete Physical Assessment</li>
+          <li><i class="fas fa-check-circle"></i> Treatment Plan</li>
+          <li><i class="fas fa-check-circle"></i> Digital Report</li>
+          <li><i class="fas fa-check-circle"></i> Exercise Guide</li>
+        </ul>
+        <a href="tel:+916207959126" class="btn btn-outline" style="width:100%;justify-content:center;">Call Now</a>
+      </div>
+      <div class="price-card popular">
+        <div class="price-badge">⭐ Most Popular</div>
+        <div class="price-icon"><i class="fas fa-clinic-medical"></i></div>
+        <div class="price-name">Clinic Session</div>
+        <div class="price-amount">₹400<small>/session</small></div>
+        <div class="price-period">Per Therapy Session</div>
+        <ul class="price-features">
+          <li><i class="fas fa-check-circle"></i> Full Therapy Session</li>
+          <li><i class="fas fa-check-circle"></i> Equipment Based Treatment</li>
+          <li><i class="fas fa-check-circle"></i> Progress Tracking</li>
+          <li><i class="fas fa-check-circle"></i> Exercise Plan</li>
+          <li><i class="fas fa-check-circle"></i> WhatsApp Follow-up</li>
+        </ul>
+        <a href="tel:+916207959126" class="btn btn-primary" style="width:100%;justify-content:center;">Call Now</a>
+      </div>
+      <div class="price-card">
+        <div class="price-icon"><i class="fas fa-home"></i></div>
+        <div class="price-name">Home Visit</div>
+        <div class="price-amount">₹700<small>/session</small></div>
+        <div class="price-period">At Your Doorstep</div>
+        <ul class="price-features">
+          <li><i class="fas fa-check-circle"></i> Home Visit by Expert</li>
+          <li><i class="fas fa-check-circle"></i> Portable Equipment</li>
+          <li><i class="fas fa-check-circle"></i> Full Session at Home</li>
+          <li><i class="fas fa-check-circle"></i> Digital Prescription</li>
+          <li><i class="fas fa-check-circle"></i> Monthly Package Available</li>
+        </ul>
+        <a href="https://wa.me/916207959126?text=Hi%2C%20I%20want%20to%20book%20a%20physiotherapy%20appointment" class="btn btn-outline" style="width:100%;justify-content:center;">WhatsApp for Home Visit</a>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:24px;">
+      <p style="color:var(--text-light);font-size:14px;"><i class="fas fa-tag" style="color:var(--accent);"></i> <strong>Senior Citizen Discount:</strong> 20% off on all services | <strong>Monthly Packages:</strong> up to 30% savings</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT QUICK INFO -->
+<section class="booking-section" id="contact-quick">
+  <div class="container">
+    <div class="booking-info" style="max-width:800px;margin:0 auto;text-align:center;">
+      <div class="section-label">Contact Us</div>
+      <h2>Humse Judi Rahein</h2>
+      <p style="max-width:600px;margin:0 auto 32px;">Kisi bhi tarah ki query ya appointment ke liye humse call ya WhatsApp par sampark karein. Hum 24 ghante mein respond karte hain.</p>
+      <div class="contact-cards" style="display:grid;grid-template-columns:repeat(2,1fr);gap:16px;text-align:left;">
+        <div class="contact-card">
+          <div class="contact-icon"><i class="fas fa-phone"></i></div>
+          <div><h4>Call Karein (Aman Kumar)</h4><p><a href="tel:+916207959126" style="color:inherit;text-decoration:none;">+91 62079 59126</a> (9AM - 7PM)</p></div>
+        </div>
+        <div class="contact-card">
+          <div class="contact-icon"><i class="fas fa-phone"></i></div>
+          <div><h4>Call Karein (Tripti Soni)</h4><p><a href="tel:+917635020482" style="color:inherit;text-decoration:none;">+91 76350 20482</a> (9AM - 7PM)</p></div>
+        </div>
+        <div class="contact-card">
+          <div class="contact-icon" style="background:#25D366;"><i class="fab fa-whatsapp"></i></div>
+          <div><h4>WhatsApp Karein</h4><p>+91 62079 59126 (24×7)</p></div>
+        </div>
+        <div class="contact-card">
+          <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+          <div><h4>Clinic Address</h4><p>Main Road, Hajipur, Vaishali, Bihar</p></div>
+        </div>
+        <div class="contact-card">
+          <div class="contact-icon"><i class="fas fa-clock"></i></div>
+          <div><h4>Working Hours</h4><p>Mon–Sat: 9AM–7PM | Sun: 10AM–2PM</p></div>
+        </div>
+      </div>
+      <div style="margin-top:32px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+        <a href="tel:+916207959126" class="btn btn-primary"><i class="fas fa-phone"></i> Call Now</a>
+        <a href="https://wa.me/916207959126?text=Hi%2C%20I%20want%20to%20book%20a%20physiotherapy%20appointment" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp Karein</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section">
+  <div class="container">
+    <div class="section-head text-center">
+      <div class="section-label">FAQ</div>
+      <h2 class="section-title">Aksar Pooche Jane Wale Sawaal</h2>
+    </div>
+    <div class="faq-grid" id="faqGrid"></div>
+  </div>
+</section>
+
+<!-- BLOG -->
+<section class="blog-section" id="blog">
+  <div class="container">
+    <div class="section-head text-center">
+      <div class="section-label">Health Blog</div>
+      <h2 class="section-title">Health Tips & Articles</h2>
+      <p class="section-sub">Expert physiotherapy advice, pain management tips aur exercise guides.</p>
+    </div>
+    <div class="blog-grid" id="blogGrid"></div>
+    <div style="text-align:center;margin-top:40px;">
+      <a href="#" class="btn btn-outline"><i class="fas fa-newspaper"></i> Sare Articles Dekhein</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <div class="container">
+    <div class="section-head text-center">
+      <div class="section-label">Location</div>
+      <h2 class="section-title">Hamen Kahan Dhundhen</h2>
+    </div>
+    <div class="contact-inner">
+      <div>
+        <div class="map-placeholder">
+          <i class="fas fa-map-marked-alt"></i>
+          <p style="font-weight:600;color:var(--text);">Vikalp Physiotherapy Clinic</p>
+          <p>Main Road, Hajipur, Vaishali, Bihar — 844101</p>
+          <a href="https://maps.google.com" target="_blank" class="btn btn-primary" style="margin-top:12px;"><i class="fas fa-directions"></i> Get Directions</a>
+        </div>
+      </div>
+      <div>
+        <div style="background:#fff;border-radius:20px;padding:32px;box-shadow:0 2px 12px rgba(0,0,0,.06);">
+          <h3 style="font-size:20px;font-weight:700;color:var(--text);margin-bottom:20px;">Working Hours</h3>
+          <table class="hours-table">
+            <tr><td>Monday – Friday</td><td>9:00 AM – 7:00 PM</td></tr>
+            <tr><td>Saturday</td><td>9:00 AM – 5:00 PM</td></tr>
+            <tr><td>Sunday</td><td>10:00 AM – 2:00 PM</td></tr>
+          </table>
+          <div style="margin-top:24px;padding:16px;background:var(--light-bg);border-radius:12px;border-left:4px solid var(--accent);">
+            <p style="font-size:13px;font-weight:600;color:var(--text);"><i class="fas fa-home" style="color:var(--accent);"></i> Home Visit — Available 7 Days (9AM–6PM)</p>
+          </div>
+          <div style="margin-top:20px;display:flex;gap:12px;flex-wrap:wrap;">
+            <a href="tel:+916207959126" class="btn btn-primary" style="flex:1;justify-content:center;"><i class="fas fa-phone"></i> Call</a>
+            <a href="https://wa.me/916207959126?text=Hi%2C%20I%20want%20to%20book%20a%20physiotherapy%20appointment" class="btn btn-whatsapp" style="flex:1;justify-content:center;"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="logo">
+          <div class="logo-icon"><i class="fas fa-hand-holding-heart"></i></div>
+          <div class="logo-text">
+            <span class="logo-name" style="color:#fff;">Vikalp</span>
+            <span class="logo-sub">Physiotherapy</span>
+          </div>
+        </a>
+        <p>Hajipur aur Patna ka trusted physiotherapy clinic. Professional care, modern equipment, aur guaranteed recovery.</p>
+        <div class="social-links">
+          <a href="#" class="soc-btn"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="soc-btn"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="soc-btn"><i class="fab fa-youtube"></i></a>
+          <a href="#" class="soc-btn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://wa.me/916207959126?text=Hi%2C%20I%20want%20to%20book%20a%20physiotherapy%20appointment" class="soc-btn"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div>
+        <h5>Quick Links</h5>
+        <ul class="foot-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#doctor">Our Doctor</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#contact-quick">Contact Us</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Services</h5>
+        <ul class="foot-links">
+          <li><a href="#services">Cervical Spondylosis</a></li>
+          <li><a href="#services">Low Back Pain</a></li>
+          <li><a href="#services">Knee Pain</a></li>
+          <li><a href="#services">Frozen Shoulder</a></li>
+          <li><a href="#services">Sciatica</a></li>
+          <li><a href="#services">Disc Prolapse</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Contact</h5>
+        <ul class="foot-links" style="gap:14px;">
+          <li><a href="#"><i class="fas fa-map-marker-alt" style="color:var(--primary);width:16px;"></i> Main Road, Hajipur, Bihar</a></li>
+          <li><a href="tel:+916207959126"><i class="fas fa-phone" style="color:var(--primary);width:16px;"></i> +91 62079 59126 (Aman)</a></li>
+          <li><a href="tel:+917635020482"><i class="fas fa-phone" style="color:var(--primary);width:16px;"></i> +91 76350 20482 (Tripti)</a></li>
+          <li><a href="https://wa.me/916207959126?text=Hi%2C%20I%20want%20to%20book%20a%20physiotherapy%20appointment"><i class="fab fa-whatsapp" style="color:#25D366;width:16px;"></i> WhatsApp 24×7</a></li>
+          <li><a href="mailto:info@vikalpphysio.com"><i class="fas fa-envelope" style="color:var(--primary);width:16px;"></i> info@vikalpphysio.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Vikalp Physiotherapy. All rights reserved.</p>
+      <div style="display:flex;gap:20px;">
+        <a href="#" style="color:#64748B;font-size:13px;text-decoration:none;">Privacy Policy</a>
+        <a href="#" style="color:#64748B;font-size:13px;text-decoration:none;">Terms of Service</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- FLOATING BUTTONS -->
+<a href="https://wa.me/916207959126?text=Hi%2C%20I%20want%20to%20book%20a%20physiotherapy%20appointment" class="float-wa" title="WhatsApp Us"><i class="fab fa-whatsapp"></i></a>
+<a href="tel:+916207959126" class="float-call" title="Call Now"><i class="fas fa-phone"></i></a>
+
+<!-- TOAST -->
+<div class="toast" id="toast">
+
+  <i class="fas fa-check-circle"></i>
+  <p id="toastMsg">Done!</p>
+</div>
+
+<script>
+// ===== DATA =====
+const services = [
+  {icon:'fa-spine',title:'Cervical Spondylosis',desc:'Neck stiffness aur cervical pain ka specialist treatment.'},
+  {icon:'fa-rib',title:'Low Back Pain',desc:'Chronic aur acute back pain ka complete physiotherapy.'},
+  {icon:'fa-bone',title:'Knee Pain',desc:'OA Knee, ligament injury aur post surgery rehab.'},
+  {icon:'fa-shoe-prints',title:'Ankle Pain',desc:'Ankle sprain aur instability ka effective treatment.'},
+  {icon:'fa-hand',title:'Tennis Elbow',desc:'Elbow aur forearm pain ka specialized treatment.'},
+  {icon:'fa-shoulder',title:'Frozen Shoulder',desc:'Shoulder stiffness ka progressive treatment plan.'},
+  {icon:'fa-bolt',title:'Nerve Injury',desc:'Nerve damage recovery ke liye targeted therapy.'},
+  {icon:'fa-circle-nodes',title:'Arthritis',desc:'Osteoarthritis aur rheumatoid arthritis management.'},
+  {icon:'fa-nerve',title:'Sciatica',desc:'Sciatica nerve pain ka root cause treatment.'},
+  {icon:'fa-bone',title:'Fracture Stiffness',desc:'Fracture ke baad joint stiffness ka rehab.'},
+  {icon:'fa-compress-arrows-alt',title:'Disc Prolapse',desc:'Slip disc ka non-surgical treatment.'},
+];
+
+const conditions = [
+  {icon:'fa-joint',label:'Joint Pain'},{icon:'fa-muscle',label:'Muscle Pain'},
+  {icon:'fa-spine',label:'Back Pain'},{icon:'fa-head-side',label:'Neck Pain'},
+  {icon:'fa-shoulder',label:'Frozen Shoulder'},{icon:'fa-compress',label:'Slip Disc'},
+  {icon:'fa-nerve',label:'Sciatica'},{icon:'fa-bone',label:'Fracture Rehab'},
+  {icon:'fa-running',label:'Sports Injury'},{icon:'fa-balance-scale',label:'Balance Problem'},
+  {icon:'fa-hospital',label:'Post Surgery'},{icon:'fa-brain',label:'Neuro Rehab'},
+];
+
+const treatments = [
+  {icon:'fa-bolt',label:'IFT Therapy'},{icon:'fa-wave-square',label:'Ultrasound Therapy'},
+  {icon:'fa-zap',label:'TENS Therapy'},{icon:'fa-syringe',label:'Dry Needling'},
+  {icon:'fa-hands',label:'Manual Therapy'},{icon:'fa-dumbbell',label:'Exercise Therapy'},
+  {icon:'fa-arrows-alt-v',label:'Traction'},{icon:'fa-fire',label:'Cupping'},
+  {icon:'fa-tape',label:'Kinesio Taping'},{icon:'fa-laser',label:'Laser Therapy'},
+  {icon:'fa-weight-lifting',label:'Strength Training'},{icon:'fa-person-balance',label:'Balance Training'},
+];
+
+const reviews = [
+  {name:'Ramesh Singh',loc:'Hajipur',text:'Main 2 saal se back pain se pareshan tha. Dr. Rajan ke treatment se 3 hafte mein kaafi aaram mila. Bahut accha clinic hai.',rating:5},
+  {name:'Sunita Devi',loc:'Patna',text:'Frozen shoulder ka ilaj bahut accha hua. Home visit ki suvidha bahut helpful thi meri maa ke liye. Highly recommended!',rating:5},
+  {name:'Vikash Kumar',loc:'Muzaffarpur',text:'Sciatica ki problem thi, surgery ka dara tha. Physiotherapy se bilkul theek ho gaya. Dr. sahab bahut experienced hain.',rating:5},
+  {name:'Priya Kumari',loc:'Hajipur',text:'Knee pain ki treatment excellent rahi. Staff bahut cooperative hai. Affordable fees aur modern equipment.',rating:5},
+  {name:'Ashok Prasad',loc:'Patna',text:'Post stroke rehab ke liye best clinic. Mera beta ab bahut better hai. Dr. Rajan bahut dedicated hain.',rating:5},
+  {name:'Meena Shah',loc:'Vaishali',text:'Cervical spondylosis mein bahut fayda mila. Exercise plan bhi diya jo ghar par kar sakti hoon. Bahut achha!',rating:5},
+];
+
+const gallery = [
+  {icon:'fa-clinic-medical',label:'Clinic Interior'},
+  {icon:'fa-couch',label:'Treatment Room'},
+  {icon:'fa-tools',label:'Modern Equipment'},
+  {icon:'fa-home',label:'Home Visit'},
+  {icon:'fa-dumbbell',label:'Exercise Area'},
+  {icon:'fa-smile-beam',label:'Happy Patients'},
+  {icon:'fa-video',label:'Video Consultation'},
+  {icon:'fa-certificate',label:'Certifications'},
+];
+
+const exercises = [
+  {icon:'fa-rib',level:'Beginner',title:'Back Stretching Exercises',desc:'Lower back pain ke liye 5 simple stretches'},
+  {icon:'fa-head-side',level:'Beginner',title:'Neck Rotation Exercises',desc:'Cervical stiffness ke liye daily exercises'},
+  {icon:'fa-bone',level:'Intermediate',title:'Knee Strengthening',desc:'Knee pain kam karne ke liye strengthening'},
+  {icon:'fa-shoulder',level:'Advanced',title:'Shoulder Mobility Drills',desc:'Frozen shoulder recovery exercises'},
+];
+
+const faqs = [
+  {q:'Back pain kitne din mein theek hota hai?',a:'Ye condition par depend karta hai. Acute back pain 2-4 hafte mein theek ho sakta hai, jabki chronic conditions mein 6-8 hafte lag sakte hain. Har patient alag hota hai.'},
+  {q:'Home visit available hai?',a:'Haan! Hum Hajipur, Patna aur surrounding areas mein home visit provide karte hain. Same day booking possible hai. WhatsApp ya call karein.'},
+  {q:'Fees kitni hai?',a:'Clinic consultation ₹200 se shuru hoti hai, therapy session ₹400/session, aur home visit ₹700/session. Monthly packages mein 30% discount milta hai.'},
+  {q:'Kya physiotherapy safe hai?',a:'Bilkul! Physiotherapy ek non-invasive, safe treatment method hai jisme koi surgery ya side effects nahi hote. Our certified therapists ensure safe treatment.'},
+  {q:'Senior citizens ke liye koi discount hai?',a:'Haan! Senior citizens (60+) ko 20% discount milta hai sab services par. Monthly packages mein aur bhi saving hoti hai.'},
+  {q:'Online appointment kaise book karein?',a:'Directly humein call karein ya WhatsApp par +91 62079 59126 par message karo. Hum 1 ghante mein confirm karte hain.'},
+];
+
+const blogs = [
+  {icon:'fa-rib',tag:'Back Pain',title:'Low Back Pain ka Kya Karan Hai? Ghar Par Kya Karein',desc:'Desk job karne walon mein back pain bahut aam ho gaya hai. Jaanein causes aur prevention tips.'},
+  {icon:'fa-bed',tag:'Sleeping',title:'Sone ka Sahi Tarika — Pain Free Neend ke Tips',desc:'Galat sone ke position se back, neck pain ho sakta hai. Expert tips for better sleep posture.'},
+  {icon:'fa-running',tag:'Sports',title:'Sports Injury se Jaldi Recovery — Physiotherapy Ka Role',desc:'Athletes ke liye physiotherapy kyu zaroori hai aur kaise faster recovery hoti hai.'},
+  {icon:'fa-laptop',tag:'Office Tips',title:'Desk Job Mein Back aur Neck Pain — 5 Expert Tips',desc:'8 ghante computer par baithne ke baad pain kaise rokein — simple exercises aur tips.'},
+  {icon:'fa-pregnant',tag:'Pregnancy',title:'Pregnancy Mein Back Pain — Safe Physiotherapy Tips',desc:'Pregnancy ke dauran back pain ke liye safe exercises aur physiotherapy guidance.'},
+  {icon:'fa-head-side',tag:'Neck Pain',title:'Cervical Spondylosis — Kya Surgery Zaroori Hai?',desc:'Cervical ke liye surgery se pehle physiotherapy try karein — success rate 85%+.'},
+];
+
+const painData = {
+  head:{title:'🧠 Sir / Sar Dard',desc:'Tension headache, migraine, aur cervicogenic headache ke liye physiotherapy mein specialized techniques use ki jaati hain. Manual therapy aur posture correction se permanent relief.',tags:['Manual Therapy','Posture Correction','IFT','Relaxation']},
+  neck:{title:'🦴 Gardan / Neck Pain',desc:'Cervical spondylosis, neck stiffness, aur cervicogenic headache ke liye traction, IFT, aur manual therapy bahut effective hai.',tags:['IFT Therapy','Traction','Manual Therapy','Cervical Exercise']},
+  shoulder:{title:'💪 Shoulder Pain',desc:'Frozen shoulder, rotator cuff injury, aur shoulder impingement ke liye specialized exercises aur manual techniques se recovery hoti hai.',tags:['Ultrasound','Manual Therapy','Shoulder Exercises','TENS']},
+  elbow:{title:'🦾 Elbow Pain',desc:'Tennis elbow, golfer elbow, aur elbow joint problems ke liye TENS therapy aur specific exercises bahut effective hain.',tags:['TENS Therapy','Dry Needling','Elbow Exercises','Taping']},
+  back:{title:'🔙 Kamar Dard / Back Pain',desc:'Low back pain, lumbar spondylosis, disc problems ke liye traction, IFT aur core strengthening exercises se permanent relief milti hai.',tags:['Traction','IFT','Core Exercises','Ultrasound']},
+  hip:{title:'🦵 Hip Pain',desc:'Hip joint pain, bursitis, aur hip replacement rehab ke liye strengthening aur mobility exercises prescribed ki jaati hain.',tags:['Hip Exercises','Manual Therapy','Balance Training','Strengthening']},
+  knee:{title:'🦿 Ghutna / Knee Pain',desc:'OA Knee, ACL injury, meniscus problem ke liye ultrasound, TENS aur quad strengthening exercises se kaafi relief milti hai.',tags:['Ultrasound','TENS','Quad Strengthening','Knee Taping']},
+  ankle:{title:'🦶 Ankle / Pair Dard',desc:'Ankle sprain, plantar fasciitis, aur ankle instability ke liye balance training aur strengthening exercises prescribed hai.',tags:['Balance Training','Taping','Proprioception','Strengthening']},
+  wrist:{title:'✋ Kalagaar / Wrist Pain',desc:'Wrist sprain, carpal tunnel syndrome ke liye splinting, TENS aur specific exercises se recovery hoti hai.',tags:['TENS','Splinting','Wrist Exercises','Manual Therapy']},
+};
+
+// ===== RENDER =====
+function render() {
+  // Services
+  const sg = document.getElementById('servicesGrid');
+  services.forEach(s => {
+    sg.innerHTML += `<div class="service-card">
+      <div class="service-icon"><i class="fas ${s.icon}"></i></div>
+      <h4>${s.title}</h4><p>${s.desc}</p>
+      <button class="btn-sm" onclick="window.open('https://wa.me/916207959126?text=' + encodeURIComponent('Hi, I want to know more about ' + s.title), '_blank')">WhatsApp Karein</button>
+    </div>`;
+  });
+
+  // Conditions
+  const cg = document.getElementById('conditionsGrid');
+  conditions.forEach(c => {
+    cg.innerHTML += `<div class="cond-card"><i class="fas ${c.icon}"></i><span>${c.label}</span></div>`;
+  });
+
+  // Treatments
+  const tg = document.getElementById('treatmentGrid');
+  treatments.forEach(t => {
+    tg.innerHTML += `<div class="treat-card"><i class="fas ${t.icon} treat-icon"></i><span>${t.label}</span></div>`;
+  });
+
+  // Reviews
+  const rg = document.getElementById('reviewsGrid');
+  reviews.forEach(r => {
+    const stars = '★'.repeat(r.rating);
+    rg.innerHTML += `<div class="review-card">
+      <div class="review-stars">${stars}</div>
+      <p class="review-text">"${r.text}"</p>
+      <div class="reviewer">
+        <div class="rev-avatar">${r.name[0]}</div>
+        <div><div class="rev-name">${r.name}</div><div class="rev-loc">${r.loc}</div></div>
+      </div>
+    </div>`;
+  });
+
+  // Gallery
+  const gal = document.getElementById('galleryGrid');
+  gallery.forEach(g => {
+    gal.innerHTML += `<div class="gallery-item">
+      <div class="gal-img"><i class="fas ${g.icon}"></i></div>
+      <div class="gal-overlay"><i class="fas fa-search-plus"></i></div>
+      <div class="gal-label">${g.label}</div>
+    </div>`;
+  });
+
+  // Exercise
+  const eg = document.getElementById('exerciseGrid');
+  exercises.forEach(ex => {
+    eg.innerHTML += `<div class="ex-card">
+      <div class="ex-thumb"><i class="fas ${ex.icon}"></i><div class="ex-play"><i class="fas fa-play"></i></div></div>
+      <div class="ex-body"><div class="ex-level">${ex.level}</div><h4>${ex.title}</h4><p>${ex.desc}</p></div>
+      <div class="ex-actions">
+        <button class="ex-btn ex-btn-vid"><i class="fas fa-play"></i> Watch Video</button>
+        <button class="ex-btn ex-btn-pdf"><i class="fas fa-file-pdf"></i> PDF Download</button>
+      </div>
+    </div>`;
+  });
+
+  // FAQ
+  const fq = document.getElementById('faqGrid');
+  faqs.forEach((f,i) => {
+    fq.innerHTML += `<div class="faq-item" id="faq${i}">
+      <div class="faq-q" onclick="toggleFaq(${i})">${f.q}<i class="fas fa-chevron-down"></i></div>
+      <div class="faq-a">${f.a}</div>
+    </div>`;
+  });
+
+  // Blog
+  const bg = document.getElementById('blogGrid');
+  blogs.forEach(b => {
+    bg.innerHTML += `<div class="blog-card">
+      <div class="blog-img"><i class="fas ${b.icon}"></i></div>
+      <div class="blog-body">
+        <span class="blog-tag">${b.tag}</span>
+        <h4>${b.title}</h4>
+        <p>${b.desc}</p>
+        <div class="blog-meta"><i class="fas fa-user"></i> Dr. Rajan Kumar <i class="fas fa-calendar" style="margin-left:8px;"></i> 2025</div>
+      </div>
+    </div>`;
+  });
+}
+
+// ===== INTERACTIONS =====
+function toggleMenu() {
+  const m = document.getElementById('mobileMenu');
+  m.classList.toggle('open');
+}
+
+function toggleFaq(i) {
+  const el = document.getElementById('faq'+i);
+  el.classList.toggle('open');
+}
+
+function selectArea(area) {
+  document.querySelectorAll('.area-pill').forEach(p => p.classList.remove('active'));
+  event.target.classList.add('active');
+  const d = painData[area];
+  document.getElementById('painTitle').textContent = d.title;
+  document.getElementById('painDesc').textContent = d.desc;
+  const tagsEl = document.getElementById('painTags');
+  tagsEl.innerHTML = d.tags.map(t=>`<span class="tag">${t}</span>`).join('');
+}
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  document.getElementById('toastMsg').textContent = msg;
+  t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'), 3000);
+}
+
+// Smooth navbar background
+window.addEventListener('scroll', ()=>{
+  const nav = document.querySelector('.navbar');
+  if(window.scrollY > 50) nav.style.boxShadow = '0 4px 30px rgba(0,0,0,0.1)';
+  else nav.style.boxShadow = '0 2px 20px rgba(0,0,0,0.06)';
+});
+
+render();
+</script>
+</body>
+</html>
