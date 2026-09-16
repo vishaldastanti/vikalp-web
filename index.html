@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vikalp PT | Advanced Physiotherapy & Doorstep Rehabilitation</title>
+  <title>Vikalp Physiotherapy | Advanced Clinical & Doorstep Rehabilitation</title>
   <meta name="description"
     content="Precision clinical physiotherapy & home care in Hajipur & Patna. Advanced electrotherapy (IFT, Ultrasound), spine decompression, sports injury rehab, and stroke recovery.">
 
@@ -79,6 +79,9 @@
       --font-display: 'Outfit', sans-serif;
       --font-body: 'Plus Jakarta Sans', sans-serif;
 
+      /* Container Max Width */
+      --container-max: 1260px;
+
       /* Transitions */
       --trans-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
       --trans-smooth: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
@@ -102,8 +105,8 @@
       color: var(--text-main);
       line-height: 1.6;
       overflow-x: hidden;
-      padding-bottom: 74px;
-      /* Room for mobile action dock */
+      padding-bottom: calc(76px + env(safe-area-inset-bottom, 0px));
+      /* Room for mobile action dock with iOS safe area */
     }
 
     @media (min-width: 992px) {
@@ -138,9 +141,15 @@
     /* Container Utility */
     .container {
       width: 100%;
-      max-width: 1260px;
+      max-width: var(--container-max);
       margin: 0 auto;
       padding: 0 24px;
+    }
+
+    @media (max-width: 576px) {
+      .container {
+        padding: 0 16px;
+      }
     }
 
     .section {
@@ -148,11 +157,14 @@
       position: relative;
     }
 
-    /* Section Headings */
-    .section-header {
-      text-align: center;
-      max-width: 720px;
-      margin: 0 auto 56px;
+    @media (max-width: 768px) {
+      .section {
+        padding: 56px 0;
+      }
+
+      .section-header {
+        margin: 0 auto 36px;
+      }
     }
 
     .pill-badge {
@@ -311,12 +323,20 @@
       right: 0;
       z-index: 1000;
       padding: 0 20px;
+      transition: var(--trans-fast);
+    }
+
+    @media (max-width: 768px) {
+      .nav-wrapper {
+        top: 10px;
+        padding: 0 12px;
+      }
     }
 
     .nav-container {
       max-width: var(--container-max);
       margin: 0 auto;
-      background: rgba(255, 255, 255, 0.92);
+      background: rgba(255, 255, 255, 0.94);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
       border: 1px solid rgba(226, 232, 240, 0.85);
@@ -329,10 +349,25 @@
       transition: var(--trans-fast);
     }
 
+    @media (max-width: 768px) {
+      .nav-container {
+        padding: 8px 14px 8px 16px;
+      }
+    }
+
     .logo-block {
       display: flex;
       align-items: center;
       gap: 12px;
+      text-decoration: none;
+      user-select: none;
+      flex-shrink: 0;
+    }
+
+    @media (max-width: 480px) {
+      .logo-block {
+        gap: 9px;
+      }
     }
 
     .logo-symbol {
@@ -346,6 +381,17 @@
       justify-content: center;
       font-size: 1.2rem;
       box-shadow: 0 4px 12px rgba(2, 132, 199, 0.3);
+      flex-shrink: 0;
+      transition: var(--trans-fast);
+    }
+
+    @media (max-width: 480px) {
+      .logo-symbol {
+        width: 36px;
+        height: 36px;
+        font-size: 1.05rem;
+        border-radius: 10px;
+      }
     }
 
     .logo-text {
@@ -360,6 +406,25 @@
       letter-spacing: -0.02em;
       color: var(--text-main);
       line-height: 1;
+      white-space: nowrap;
+    }
+
+    @media (max-width: 768px) {
+      .logo-brand {
+        font-size: 1.05rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .logo-brand {
+        font-size: 0.88rem;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .logo-brand {
+        font-size: 0.8rem;
+      }
     }
 
     .logo-tagline {
@@ -369,6 +434,12 @@
       letter-spacing: 0.06em;
       color: var(--primary);
       margin-top: 2px;
+    }
+
+    @media (max-width: 480px) {
+      .logo-tagline {
+        font-size: 0.62rem;
+      }
     }
 
     .nav-links {
@@ -397,7 +468,13 @@
     .nav-right-actions {
       display: flex;
       align-items: center;
-      gap: 14px;
+      gap: 10px;
+    }
+
+    @media (min-width: 768px) {
+      .nav-right-actions {
+        gap: 14px;
+      }
     }
 
     .direct-call-pill {
@@ -411,6 +488,13 @@
       padding: 8px 16px;
       border-radius: var(--radius-full);
       border: 1px solid var(--border-light);
+      text-decoration: none;
+      transition: var(--trans-fast);
+    }
+
+    .direct-call-pill:hover {
+      border-color: var(--primary);
+      color: var(--primary);
     }
 
     .direct-call-pill i {
@@ -420,6 +504,24 @@
     @media (min-width: 1200px) {
       .direct-call-pill {
         display: inline-flex;
+      }
+    }
+
+    /* Navbar CTA Button - Hidden on mobile (<768px) to prevent overflow */
+    .nav-cta-btn {
+      display: none !important;
+    }
+
+    @media (min-width: 768px) {
+      .nav-cta-btn {
+        display: inline-flex !important;
+      }
+    }
+
+    @media (min-width: 768px) and (max-width: 991px) {
+      .nav-cta-btn {
+        padding: 9px 16px;
+        font-size: 0.85rem;
       }
     }
 
@@ -435,6 +537,15 @@
       cursor: pointer;
       color: var(--text-main);
       font-size: 1.1rem;
+      transition: var(--trans-fast);
+      flex-shrink: 0;
+    }
+
+    .menu-btn:hover,
+    .menu-btn:active {
+      background: var(--primary-light);
+      color: var(--primary);
+      border-color: rgba(2, 132, 199, 0.3);
     }
 
     @media (min-width: 992px) {
@@ -448,21 +559,118 @@
       position: fixed;
       top: 0;
       right: -100%;
-      width: 82%;
+      width: 86%;
       max-width: 360px;
       height: 100vh;
+      height: 100dvh;
       background: #FFFFFF;
       z-index: 1200;
-      padding: 32px 24px;
+      padding: 24px 20px;
       box-shadow: -10px 0 40px rgba(0, 0, 0, 0.15);
-      transition: right 0.35s ease;
+      transition: right 0.35s cubic-bezier(0.16, 1, 0.3, 1);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
     }
 
     .mobile-drawer.open {
       right: 0;
+    }
+
+    .drawer-top-content {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .drawer-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .drawer-close-btn {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-light);
+      font-size: 1.2rem;
+      cursor: pointer;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--trans-fast);
+    }
+
+    .drawer-close-btn:hover,
+    .drawer-close-btn:active {
+      color: var(--text-main);
+      background: var(--border-light);
+    }
+
+    .drawer-nav {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .drawer-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 1.025rem;
+      font-weight: 600;
+      padding: 12px 8px;
+      color: var(--text-main);
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      transition: var(--trans-fast);
+    }
+
+    .drawer-link span {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .drawer-link span i {
+      color: var(--primary);
+      width: 20px;
+      text-align: center;
+      font-size: 0.95rem;
+    }
+
+    .drawer-link>i {
+      font-size: 0.8rem;
+      color: var(--text-light);
+      transition: transform var(--trans-fast);
+    }
+
+    .drawer-link:hover,
+    .drawer-link:active {
+      background: var(--bg-subtle);
+      color: var(--primary);
+      padding-left: 12px;
+    }
+
+    .drawer-link:hover>i {
+      transform: translateX(4px);
+      color: var(--primary);
+    }
+
+    .drawer-footer-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      padding-top: 20px;
+      margin-top: 20px;
+      border-top: 1px solid var(--border-light);
     }
 
     .drawer-backdrop {
@@ -473,6 +681,7 @@
       height: 100vh;
       background: rgba(15, 23, 42, 0.45);
       backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
       z-index: 1150;
       opacity: 0;
       pointer-events: none;
@@ -495,6 +704,13 @@
       position: relative;
     }
 
+    @media (max-width: 768px) {
+      .hero-wrap {
+        padding-top: 90px;
+        padding-bottom: 48px;
+      }
+    }
+
     .hero-layout {
       display: grid;
       grid-template-columns: 1fr;
@@ -514,37 +730,56 @@
     }
 
     .hero-h1 {
-      font-size: clamp(2.4rem, 4.6vw, 3.8rem);
+      font-size: clamp(1.85rem, 5.5vw, 3.8rem);
       font-weight: 800;
       letter-spacing: -0.03em;
-      line-height: 1.12;
-      margin: 18px 0 20px;
+      line-height: 1.15;
+      margin: 16px 0 18px;
+      word-wrap: break-word;
     }
 
     .hero-p {
-      font-size: clamp(1.05rem, 1.25vw, 1.18rem);
+      font-size: clamp(0.95rem, 1.2vw, 1.18rem);
       color: var(--text-muted);
       line-height: 1.65;
-      margin-bottom: 32px;
+      margin-bottom: 28px;
     }
 
     .hero-actions-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 14px;
-      margin-bottom: 40px;
+      gap: 12px;
+      margin-bottom: 36px;
+    }
+
+    @media (max-width: 480px) {
+      .hero-actions-row {
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .hero-actions-row .btn {
+        width: 100%;
+      }
     }
 
     /* Hero Trust Metrics Strip */
     .hero-metrics-strip {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-      padding: 20px 24px;
+      gap: 14px;
+      padding: 18px 20px;
       background: #FFFFFF;
       border: 1px solid var(--border-light);
       border-radius: var(--radius-lg);
       box-shadow: var(--shadow-subtle);
+    }
+
+    @media (max-width: 480px) {
+      .hero-metrics-strip {
+        padding: 14px 12px;
+        gap: 8px;
+      }
     }
 
     .metric-col {
@@ -560,6 +795,12 @@
       line-height: 1.1;
     }
 
+    @media (max-width: 480px) {
+      .metric-val {
+        font-size: 1.25rem;
+      }
+    }
+
     .metric-lbl {
       font-size: 0.775rem;
       color: var(--text-muted);
@@ -567,11 +808,16 @@
       margin-top: 2px;
     }
 
+    @media (max-width: 480px) {
+      .metric-lbl {
+        font-size: 0.7rem;
+      }
+    }
+
     /* Hero Visual Showcase */
     .hero-visual-card {
       position: relative;
       border-radius: var(--radius-lg);
-      overflow: hidden;
       box-shadow: var(--shadow-hover);
       border: 1px solid rgba(226, 232, 240, 0.8);
       background: #FFFFFF;
@@ -581,7 +827,20 @@
       width: 100%;
       height: 480px;
       object-fit: cover;
+      border-radius: var(--radius-lg);
       transition: transform 0.6s ease;
+    }
+
+    @media (max-width: 991px) {
+      .hero-visual-card img {
+        height: 380px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero-visual-card img {
+        height: 270px;
+      }
     }
 
     .hero-visual-card:hover img {
@@ -592,9 +851,10 @@
       position: absolute;
       background: rgba(255, 255, 255, 0.95);
       backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       border: 1px solid rgba(226, 232, 240, 0.9);
       border-radius: var(--radius-md);
-      padding: 12px 18px;
+      padding: 10px 16px;
       box-shadow: var(--shadow-card);
       display: flex;
       align-items: center;
@@ -604,13 +864,13 @@
     }
 
     .floating-pill-card.top-tag {
-      top: -16px;
-      right: -10px;
+      top: 14px;
+      right: 14px;
     }
 
     .floating-pill-card.bottom-tag {
-      bottom: -16px;
-      left: -10px;
+      bottom: 14px;
+      left: 14px;
       animation-delay: 2s;
     }
 
@@ -622,18 +882,19 @@
       }
 
       50% {
-        transform: translateY(-7px);
+        transform: translateY(-6px);
       }
     }
 
     .tag-icon-circle {
-      width: 40px;
-      height: 40px;
+      width: 38px;
+      height: 38px;
       border-radius: 10px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.1rem;
+      font-size: 1.05rem;
+      flex-shrink: 0;
     }
 
     .tag-icon-circle.emerald {
@@ -646,20 +907,27 @@
       color: var(--primary);
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 480px) {
       .floating-pill-card {
-        position: static;
-        margin-top: 10px;
-        animation: none;
+        padding: 8px 12px;
+        gap: 8px;
       }
 
-      .hero-visual-card img {
-        height: 320px;
+      .tag-icon-circle {
+        width: 32px;
+        height: 32px;
+        font-size: 0.925rem;
+        border-radius: 8px;
       }
 
-      .hero-metrics-strip {
-        grid-template-columns: 1fr;
-        gap: 12px;
+      .floating-pill-card.top-tag {
+        top: 10px;
+        right: 10px;
+      }
+
+      .floating-pill-card.bottom-tag {
+        bottom: 10px;
+        left: 10px;
       }
     }
 
@@ -667,12 +935,19 @@
        QUICK APPOINTMENT DOCK (HERO INTEGRATED)
        ========================================================================== */
     .quick-dock-card {
-      margin-top: 36px;
+      margin-top: 32px;
       background: #FFFFFF;
       border: 1px solid var(--border-light);
       border-radius: var(--radius-lg);
       padding: 24px;
       box-shadow: var(--shadow-card);
+    }
+
+    @media (max-width: 480px) {
+      .quick-dock-card {
+        padding: 16px;
+        margin-top: 24px;
+      }
     }
 
     .quick-dock-grid {
@@ -712,6 +987,7 @@
       color: var(--text-main);
       outline: none;
       transition: var(--trans-fast);
+      width: 100%;
     }
 
     .dock-field select:focus,
@@ -780,9 +1056,22 @@
        ========================================================================== */
     .pain-matrix-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 22px;
+      grid-template-columns: 1fr;
+      gap: 20px;
       margin-top: 16px;
+    }
+
+    @media (min-width: 640px) {
+      .pain-matrix-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 22px;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .pain-matrix-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
     }
 
     .pain-card {
@@ -797,6 +1086,12 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+    }
+
+    @media (max-width: 480px) {
+      .pain-card {
+        padding: 22px 18px;
+      }
     }
 
     .pain-card:hover {
@@ -828,6 +1123,7 @@
       justify-content: center;
       font-size: 1.4rem;
       transition: var(--trans-fast);
+      flex-shrink: 0;
     }
 
     .pain-card:hover .pain-icon-avatar {
@@ -879,6 +1175,7 @@
       justify-content: space-between;
       padding-top: 14px;
       border-top: 1px solid var(--border-light);
+      gap: 10px;
     }
 
     .timeline-est {
@@ -892,8 +1189,21 @@
        ========================================================================== */
     .bento-modalities-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 24px;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    @media (min-width: 640px) {
+      .bento-modalities-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .bento-modalities-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
     }
 
     .bento-modality-card {
@@ -904,6 +1214,12 @@
       box-shadow: var(--shadow-subtle);
       transition: var(--trans-smooth);
       position: relative;
+    }
+
+    @media (max-width: 480px) {
+      .bento-modality-card {
+        padding: 24px 18px;
+      }
     }
 
     .bento-modality-card:hover {
@@ -930,6 +1246,7 @@
       justify-content: center;
       font-size: 1.45rem;
       transition: var(--trans-fast);
+      flex-shrink: 0;
     }
 
     .bento-modality-card:hover .modality-icon-frame {
@@ -997,6 +1314,13 @@
       overflow: hidden;
     }
 
+    @media (max-width: 768px) {
+      .home-rehab-block {
+        padding: 36px 20px;
+        border-radius: var(--radius-md);
+      }
+    }
+
     @media (min-width: 992px) {
       .home-rehab-block {
         padding: 80px 60px;
@@ -1006,7 +1330,7 @@
     .home-rehab-grid {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 48px;
+      gap: 36px;
       align-items: center;
       position: relative;
       z-index: 2;
@@ -1015,13 +1339,14 @@
     @media (min-width: 992px) {
       .home-rehab-grid {
         grid-template-columns: 1.15fr 0.85fr;
+        gap: 48px;
       }
     }
 
     .home-rehab-text h2 {
-      font-size: clamp(2.2rem, 3.6vw, 3.2rem);
+      font-size: clamp(1.85rem, 4vw, 3.2rem);
       color: #FFFFFF;
-      margin-bottom: 20px;
+      margin-bottom: 18px;
       letter-spacing: -0.02em;
     }
 
@@ -1033,19 +1358,20 @@
       font-size: 1.05rem;
       color: #CBD5E1;
       line-height: 1.65;
-      margin-bottom: 32px;
+      margin-bottom: 28px;
     }
 
     .home-specs-grid {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 14px;
-      margin-bottom: 36px;
+      gap: 12px;
+      margin-bottom: 32px;
     }
 
     @media (min-width: 576px) {
       .home-specs-grid {
         grid-template-columns: 1fr 1fr;
+        gap: 14px;
       }
     }
 
@@ -1081,6 +1407,12 @@
       object-fit: cover;
     }
 
+    @media (max-width: 768px) {
+      .home-rehab-media img {
+        height: 260px;
+      }
+    }
+
     .media-overlay-badge {
       position: absolute;
       bottom: 20px;
@@ -1088,6 +1420,7 @@
       right: 20px;
       background: rgba(11, 19, 43, 0.92);
       backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
       padding: 14px 20px;
       border-radius: var(--radius-md);
       border: 1px solid rgba(255, 255, 255, 0.12);
@@ -1096,13 +1429,29 @@
       justify-content: space-between;
     }
 
+    @media (max-width: 768px) {
+      .media-overlay-badge {
+        bottom: 12px;
+        left: 12px;
+        right: 12px;
+        padding: 10px 14px;
+      }
+    }
+
     /* ==========================================================================
        4-STEP CARE BLUEPRINT
        ========================================================================== */
     .care-blueprint-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 24px;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    @media (min-width: 576px) {
+      .care-blueprint-grid {
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 24px;
+      }
     }
 
     .blueprint-card {
@@ -1112,6 +1461,12 @@
       padding: 32px 24px;
       box-shadow: var(--shadow-subtle);
       transition: var(--trans-smooth);
+    }
+
+    @media (max-width: 480px) {
+      .blueprint-card {
+        padding: 24px 18px;
+      }
     }
 
     .blueprint-card:hover {
@@ -1150,10 +1505,26 @@
        ========================================================================== */
     .pricing-toggle-bar {
       display: flex;
+      flex-wrap: wrap;
       align-items: center;
       justify-content: center;
-      gap: 16px;
-      margin-bottom: 48px;
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+
+    @media (max-width: 520px) {
+      .pricing-toggle-bar {
+        flex-direction: column;
+        width: 100%;
+        gap: 8px;
+      }
+
+      .plan-switch-btn {
+        width: 100%;
+        text-align: center;
+        padding: 10px 16px;
+        font-size: 0.88rem;
+      }
     }
 
     .plan-switch-btn {
@@ -1187,9 +1558,16 @@
 
     .pricing-cards-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 28px;
+      grid-template-columns: 1fr;
+      gap: 24px;
       align-items: stretch;
+    }
+
+    @media (min-width: 768px) {
+      .pricing-cards-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 28px;
+      }
     }
 
     .pricing-plan-card {
@@ -1203,6 +1581,12 @@
       justify-content: space-between;
       position: relative;
       transition: var(--trans-smooth);
+    }
+
+    @media (max-width: 480px) {
+      .pricing-plan-card {
+        padding: 30px 20px;
+      }
     }
 
     .pricing-plan-card:hover {
@@ -1229,11 +1613,12 @@
       padding: 4px 18px;
       border-radius: var(--radius-full);
       box-shadow: 0 4px 12px rgba(2, 132, 199, 0.3);
+      white-space: nowrap;
     }
 
     .pricing-amount-tag {
       font-family: var(--font-display);
-      font-size: 3.2rem;
+      font-size: clamp(2.4rem, 6vw, 3.2rem);
       font-weight: 800;
       color: var(--text-main);
       line-height: 1;
@@ -1241,6 +1626,7 @@
       display: flex;
       align-items: baseline;
       gap: 4px;
+      flex-wrap: wrap;
     }
 
     .pricing-amount-tag span {
@@ -1272,6 +1658,7 @@
     .plan-features-list li i {
       color: var(--secondary);
       font-size: 1rem;
+      flex-shrink: 0;
     }
 
     /* ==========================================================================
@@ -1279,8 +1666,15 @@
        ========================================================================== */
     .specialists-deck {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 28px;
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+
+    @media (min-width: 768px) {
+      .specialists-deck {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 28px;
+      }
     }
 
     .clinician-card {
@@ -1293,6 +1687,15 @@
       gap: 20px;
       align-items: center;
       transition: var(--trans-smooth);
+    }
+
+    @media (max-width: 480px) {
+      .clinician-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 24px 18px;
+        gap: 16px;
+      }
     }
 
     .clinician-card:hover {
@@ -1334,6 +1737,14 @@
       line-height: 1.5;
     }
 
+    @media (max-width: 480px) {
+      .clinician-meta {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+
     /* ==========================================================================
        FAQS ACCORDION
        ========================================================================== */
@@ -1367,11 +1778,20 @@
       font-weight: 600;
       font-size: 1.05rem;
       user-select: none;
+      gap: 12px;
+    }
+
+    @media (max-width: 480px) {
+      .faq-title {
+        padding: 16px 18px;
+        font-size: 0.95rem;
+      }
     }
 
     .faq-title i {
       color: var(--primary);
       transition: transform 0.3s ease;
+      flex-shrink: 0;
     }
 
     .faq-row.open .faq-title i {
@@ -1384,6 +1804,13 @@
       color: var(--text-muted);
       font-size: 0.95rem;
       line-height: 1.6;
+    }
+
+    @media (max-width: 480px) {
+      .faq-content {
+        padding: 0 18px 16px;
+        font-size: 0.88rem;
+      }
     }
 
     .faq-row.open .faq-content {
@@ -1401,6 +1828,7 @@
       height: 100vh;
       background: rgba(15, 23, 42, 0.65);
       backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
       z-index: 2000;
       display: flex;
       align-items: center;
@@ -1428,6 +1856,13 @@
       overflow-y: auto;
       transform: scale(0.94);
       transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    @media (max-width: 480px) {
+      .modal-dialog {
+        padding: 24px 16px;
+        border-radius: var(--radius-md);
+      }
     }
 
     .modal-backdrop.open .modal-dialog {
@@ -1480,6 +1915,7 @@
       background: var(--bg-subtle);
       outline: none;
       transition: var(--trans-fast);
+      width: 100%;
     }
 
     .input-block input:focus,
@@ -1512,10 +1948,11 @@
       right: 0;
       background: rgba(255, 255, 255, 0.96);
       backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
       border-top: 1px solid var(--border-light);
-      padding: 12px 16px;
+      padding: 10px 14px calc(10px + env(safe-area-inset-bottom, 0px));
       z-index: 999;
-      gap: 12px;
+      gap: 10px;
       box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.08);
     }
 
@@ -1659,17 +2096,17 @@
   <!-- ==================== FLOATING GLASS PILL NAVBAR ==================== -->
   <header class="nav-wrapper">
     <div class="nav-container">
-      <a href="#" class="logo-block">
+      <a href="#" class="logo-block" aria-label="Vikalp Physiotherapy Home">
         <div class="logo-symbol">
           <i class="fas fa-heart-pulse"></i>
         </div>
         <div class="logo-text">
-          <span class="logo-brand">VIKALP PT</span>
+          <span class="logo-brand">VIKALP PHYSIOTHERAPY</span>
           <span class="logo-tagline">Precision Rehab</span>
         </div>
       </a>
 
-      <nav class="nav-links">
+      <nav class="nav-links" aria-label="Main Navigation">
         <a href="#services" class="nav-link-item">Treatments</a>
         <a href="#symptom-matrix" class="nav-link-item">Symptom Matrix</a>
         <a href="#home-visit" class="nav-link-item">Doorstep Care</a>
@@ -1683,11 +2120,11 @@
           <i class="fas fa-phone-volume"></i>
           <span>+91 62079 59126</span>
         </a>
-        <button class="btn btn-primary" onclick="openBookingModal('Navbar Button', 'Clinic Visit')">
+        <button class="btn btn-primary nav-cta-btn" onclick="openBookingModal('Navbar Button', 'Clinic Visit')">
           <i class="fas fa-calendar-check"></i>
           <span>Book Now</span>
         </button>
-        <button class="menu-btn" id="openDrawerBtn" aria-label="Open Navigation">
+        <button class="menu-btn" id="openDrawerBtn" aria-label="Open Navigation" aria-expanded="false">
           <i class="fas fa-bars"></i>
         </button>
       </div>
@@ -1696,39 +2133,52 @@
 
   <!-- Mobile Drawer Overlay -->
   <div class="drawer-backdrop" id="drawerBackdrop"></div>
-  <aside class="mobile-drawer" id="mobileDrawer">
-    <div>
-      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
+  <aside class="mobile-drawer" id="mobileDrawer" aria-label="Mobile Navigation Menu">
+    <div class="drawer-top-content">
+      <div class="drawer-header">
         <div class="logo-block">
           <div class="logo-symbol"><i class="fas fa-heart-pulse"></i></div>
-          <span class="logo-brand">VIKALP PT</span>
+          <div class="logo-text">
+            <span class="logo-brand">VIKALP PHYSIOTHERAPY</span>
+            <span class="logo-tagline">Precision Rehab</span>
+          </div>
         </div>
-        <button id="closeDrawerBtn"
-          style="background:none; border:none; font-size:1.4rem; cursor:pointer; color:var(--text-muted);">&times;</button>
+        <button class="drawer-close-btn" id="closeDrawerBtn" aria-label="Close Navigation">&times;</button>
       </div>
 
-      <nav style="display: flex; flex-direction: column; gap: 18px;">
-        <a href="#services" onclick="toggleDrawer(false)"
-          style="font-size:1.1rem; font-weight:600; padding:8px 0; border-bottom:1px solid var(--border-light);">Treatments</a>
-        <a href="#symptom-matrix" onclick="toggleDrawer(false)"
-          style="font-size:1.1rem; font-weight:600; padding:8px 0; border-bottom:1px solid var(--border-light);">Symptom
-          Matrix</a>
-        <a href="#home-visit" onclick="toggleDrawer(false)"
-          style="font-size:1.1rem; font-weight:600; padding:8px 0; border-bottom:1px solid var(--border-light);">Doorstep
-          Home Rehab</a>
-        <a href="#pricing" onclick="toggleDrawer(false)"
-          style="font-size:1.1rem; font-weight:600; padding:8px 0; border-bottom:1px solid var(--border-light);">Pricing
-          & Bundles</a>
-        <a href="#specialists" onclick="toggleDrawer(false)"
-          style="font-size:1.1rem; font-weight:600; padding:8px 0; border-bottom:1px solid var(--border-light);">Clinical
-          Team</a>
-        <a href="#contact" onclick="toggleDrawer(false)"
-          style="font-size:1.1rem; font-weight:600; padding:8px 0; border-bottom:1px solid var(--border-light);">Clinic
-          Location</a>
+      <nav class="drawer-nav">
+        <a href="#services" class="drawer-link" onclick="toggleDrawer(false)">
+          <span><i class="fas fa-shield-halved"></i> Treatments</span>
+          <i class="fas fa-chevron-right"></i>
+        </a>
+        <a href="#symptom-matrix" class="drawer-link" onclick="toggleDrawer(false)">
+          <span><i class="fas fa-stethoscope"></i> Symptom Matrix</span>
+          <i class="fas fa-chevron-right"></i>
+        </a>
+        <a href="#home-visit" class="drawer-link" onclick="toggleDrawer(false)">
+          <span><i class="fas fa-house-medical"></i> Doorstep Home Rehab</span>
+          <i class="fas fa-chevron-right"></i>
+        </a>
+        <a href="#pricing" class="drawer-link" onclick="toggleDrawer(false)">
+          <span><i class="fas fa-tags"></i> Pricing & Bundles</span>
+          <i class="fas fa-chevron-right"></i>
+        </a>
+        <a href="#specialists" class="drawer-link" onclick="toggleDrawer(false)">
+          <span><i class="fas fa-user-doctor"></i> Clinical Team</span>
+          <i class="fas fa-chevron-right"></i>
+        </a>
+        <a href="#faqs" class="drawer-link" onclick="toggleDrawer(false)">
+          <span><i class="fas fa-circle-question"></i> FAQs</span>
+          <i class="fas fa-chevron-right"></i>
+        </a>
+        <a href="#contact" class="drawer-link" onclick="toggleDrawer(false)">
+          <span><i class="fas fa-map-location-dot"></i> Clinic Location</span>
+          <i class="fas fa-chevron-right"></i>
+        </a>
       </nav>
     </div>
 
-    <div style="display: flex; flex-direction: column; gap: 12px;">
+    <div class="drawer-footer-actions">
       <a href="tel:+916207959126" class="btn btn-outline" style="width:100%;">
         <i class="fas fa-phone-alt"></i> Call +91 62079 59126
       </a>
@@ -1760,7 +2210,7 @@
 
           <div class="hero-actions-row">
             <button class="btn btn-primary" onclick="openBookingModal('Hero Primary', 'Clinic Visit')">
-              <i class="fas fa-calendar-plus"></i> Book Consultation (₹200)
+              <i class="fas fa-calendar-plus"></i> Book Consultation (Free)
             </button>
             <a href="#home-visit" class="btn btn-coral">
               <i class="fas fa-house-medical"></i> Request Doorstep Visit
@@ -1778,7 +2228,7 @@
               <div class="metric-lbl">Mobility Success Rate</div>
             </div>
             <div class="metric-col">
-              <div class="metric-val">45 Mins</div>
+              <div class="metric-val">60 Mins</div>
               <div class="metric-lbl">Home Visit Dispatch</div>
             </div>
           </div>
@@ -1818,13 +2268,18 @@
           <div class="dock-field">
             <label for="dockCondition"><i class="fas fa-crosshairs"></i> Select Condition</label>
             <select id="dockCondition">
-              <option value="Lower Back Pain & Sciatica">Lower Back Pain & Sciatica</option>
-              <option value="Neck Pain & Cervical">Neck Pain & Cervical Spondylosis</option>
-              <option value="Knee Pain & Osteoarthritis">Knee Pain & Osteoarthritis</option>
-              <option value="Frozen Shoulder & Stiffness">Frozen Shoulder & Stiffness</option>
-              <option value="Sports Injury & Sprain">Sports Injury & Ligament Sprain</option>
-              <option value="Stroke & Neuro Rehab">Stroke & Neuro Rehabilitation</option>
-              <option value="Post-Surgical Care">Post-Surgical Joint Rehabilitation</option>
+              <option value="Cervical Spondylosis">Cervical Spondylosis</option>
+              <option value="Low Back Pain">Low Back Pain</option>
+              <option value="Knee Pain">Knee Pain</option>
+              <option value="Ankle Pain">Ankle Pain</option>
+              <option value="Tennis Elbow">Tennis Elbow</option>
+              <option value="Frozen Shoulder">Frozen Shoulder</option>
+              <option value="Nerve Injury">Nerve Injury</option>
+              <option value="Arthritis">Arthritis</option>
+              <option value="Sciatica">Sciatica</option>
+              <option value="Fracture Stiffness">Fracture Stiffness</option>
+              <option value="Disc Prolapse">Disc Prolapse</option>
+              <option value="Others">Others</option>
             </select>
           </div>
 
@@ -1884,36 +2339,14 @@
       </div>
 
       <div class="pain-matrix-grid">
-        <!-- 1: Spine -->
-        <div class="pain-card" onclick="openBookingModal('Spine & Sciatica Decompression', 'Clinic Visit')">
-          <div>
-            <div class="pain-card-head">
-              <div class="pain-icon-avatar"><i class="fas fa-bone"></i></div>
-              <span class="pain-badge-indicator">High Frequency</span>
-            </div>
-            <h3>Spine, Lumbar & Sciatica</h3>
-            <p>Sharp shooting nerve pain down the leg, herniated disc compression, and chronic morning lower back
-              stiffness.</p>
-            <div class="protocol-snippet">
-              <strong>Clinical Protocol:</strong>
-              Non-surgical mechanical disc traction, deep 4-pole IFT pain gating, and lumbar core stabilizer activation.
-            </div>
-          </div>
-          <div class="pain-card-footer">
-            <span class="timeline-est">⏱ Avg: 8 - 14 Sessions</span>
-            <span style="font-weight:700; color:var(--primary); font-size:0.85rem;">Book Plan <i
-                class="fas fa-arrow-right"></i></span>
-          </div>
-        </div>
-
-        <!-- 2: Neck -->
-        <div class="pain-card" onclick="openBookingModal('Cervical & Neck Protocol', 'Clinic Visit')">
+        <!-- 1: Cervical Spondylosis -->
+        <div class="pain-card" onclick="openBookingModal('Cervical Spondylosis', 'Clinic Visit')">
           <div>
             <div class="pain-card-head">
               <div class="pain-icon-avatar"><i class="fas fa-head-side-cough"></i></div>
-              <span class="pain-badge-indicator" style="background:#FEF3C7; color:#B45309;">Posture Related</span>
+              <span class="pain-badge-indicator" style="background:#FEF3C7; color:#B45309;">Posture & Spine</span>
             </div>
-            <h3>Cervical Spondylosis & Neck</h3>
+            <h3>Cervical Spondylosis</h3>
             <p>Radiating shoulder blade pain, stiff cervical spine from screen posture, tension headaches, and finger
               numbness.</p>
             <div class="protocol-snippet">
@@ -1928,16 +2361,39 @@
           </div>
         </div>
 
-        <!-- 3: Knee -->
-        <div class="pain-card" onclick="openBookingModal('Knee Osteoarthritis Protocol', 'Clinic Visit')">
+        <!-- 2: Low Back Pain -->
+        <div class="pain-card" onclick="openBookingModal('Low Back Pain', 'Clinic Visit')">
+          <div>
+            <div class="pain-card-head">
+              <div class="pain-icon-avatar"><i class="fas fa-child-reaching"></i></div>
+              <span class="pain-badge-indicator" style="background:#FEF2F2; color:#DC2626;">High Frequency</span>
+            </div>
+            <h3>Low Back Pain</h3>
+            <p>Severe lumbar muscle spasms, persistent morning stiffness, facet joint strain, and sitting postural
+              fatigue.</p>
+            <div class="protocol-snippet">
+              <strong>Clinical Protocol:</strong>
+              Core stabilizer activation, lumbar decompression traction, multi-pole IFT pain gating, and postural
+              re-education.
+            </div>
+          </div>
+          <div class="pain-card-footer">
+            <span class="timeline-est">⏱ Avg: 7 - 12 Sessions</span>
+            <span style="font-weight:700; color:var(--primary); font-size:0.85rem;">Book Plan <i
+                class="fas fa-arrow-right"></i></span>
+          </div>
+        </div>
+
+        <!-- 3: Knee Pain -->
+        <div class="pain-card" onclick="openBookingModal('Knee Pain', 'Clinic Visit')">
           <div>
             <div class="pain-card-head">
               <div class="pain-icon-avatar"><i class="fas fa-person-walking"></i></div>
-              <span class="pain-badge-indicator">Joint Care</span>
+              <span class="pain-badge-indicator" style="background:#E0F2FE; color:#0284C7;">Joint Care</span>
             </div>
-            <h3>Knee Osteoarthritis & Joints</h3>
-            <p>Crepitus (joint clicking), difficulty climbing stairs, cartilage wear, and post-TKR knee rehabilitation.
-            </p>
+            <h3>Knee Pain</h3>
+            <p>Crepitus (joint clicking), difficulty climbing stairs, cartilage wear, patellar tracking issues, and
+              ligament strain.</p>
             <div class="protocol-snippet">
               <strong>Clinical Protocol:</strong>
               Patellar mobilization, closed kinetic chain VMO loading, synovial fluid stimulation, and gait
@@ -1945,24 +2401,71 @@
             </div>
           </div>
           <div class="pain-card-footer">
-            <span class="timeline-est">⏱ Avg: 10 - 18 Sessions</span>
+            <span class="timeline-est">⏱ Avg: 8 - 14 Sessions</span>
             <span style="font-weight:700; color:var(--primary); font-size:0.85rem;">Book Plan <i
                 class="fas fa-arrow-right"></i></span>
           </div>
         </div>
 
-        <!-- 4: Shoulder -->
-        <div class="pain-card" onclick="openBookingModal('Frozen Shoulder Protocol', 'Clinic Visit')">
+        <!-- 4: Ankle Pain -->
+        <div class="pain-card" onclick="openBookingModal('Ankle Pain', 'Clinic Visit')">
+          <div>
+            <div class="pain-card-head">
+              <div class="pain-icon-avatar"><i class="fas fa-shoe-prints"></i></div>
+              <span class="pain-badge-indicator" style="background:#DCFCE7; color:#15803D;">Mobility & Sports</span>
+            </div>
+            <h3>Ankle Pain</h3>
+            <p>Acute ligament sprains, Achilles tendonitis, chronic ankle instability, heel spur, and plantar fasciitis
+              tenderness.</p>
+            <div class="protocol-snippet">
+              <strong>Clinical Protocol:</strong>
+              Swelling compression management, proprioception balance training, ultrasound tendon healing, and dynamic
+              taping.
+            </div>
+          </div>
+          <div class="pain-card-footer">
+            <span class="timeline-est">⏱ Avg: 4 - 8 Sessions</span>
+            <span style="font-weight:700; color:var(--primary); font-size:0.85rem;">Book Plan <i
+                class="fas fa-arrow-right"></i></span>
+          </div>
+        </div>
+
+        <!-- 5: Tennis Elbow -->
+        <div class="pain-card" onclick="openBookingModal('Tennis Elbow', 'Clinic Visit')">
+          <div>
+            <div class="pain-card-head">
+              <div class="pain-icon-avatar"><i class="fas fa-hand-back-fist"></i></div>
+              <span class="pain-badge-indicator" style="background:#F3E8FF; color:#7E22CE;">Tendon Overuse</span>
+            </div>
+            <h3>Tennis Elbow</h3>
+            <p>Lateral epicondyle tenderness, burning forearm ache, and weakened grip strength during daily twisting or
+              lifting.</p>
+            <div class="protocol-snippet">
+              <strong>Clinical Protocol:</strong>
+              Cross-friction manual release, eccentric wrist extensor loading, ultrasound micro-repair, and counterforce
+              unloading.
+            </div>
+          </div>
+          <div class="pain-card-footer">
+            <span class="timeline-est">⏱ Avg: 4 - 6 Sessions</span>
+            <span style="font-weight:700; color:var(--primary); font-size:0.85rem;">Book Plan <i
+                class="fas fa-arrow-right"></i></span>
+          </div>
+        </div>
+
+        <!-- 6: Frozen Shoulder -->
+        <div class="pain-card" onclick="openBookingModal('Frozen Shoulder', 'Clinic Visit')">
           <div>
             <div class="pain-card-head">
               <div class="pain-icon-avatar"><i class="fas fa-person-rays"></i></div>
-              <span class="pain-badge-indicator" style="background:#F3E8FF; color:#7E22CE;">Capsular</span>
+              <span class="pain-badge-indicator" style="background:#FFEDD5; color:#C2410C;">Capsular Stiff</span>
             </div>
-            <h3>Frozen Shoulder (Capsulitis)</h3>
-            <p>Loss of overhead arm elevation, excruciating night pain, and inability to reach behind your back.</p>
+            <h3>Frozen Shoulder</h3>
+            <p>Severe loss of overhead arm elevation, painful night sleep, and inability to reach behind your back.</p>
             <div class="protocol-snippet">
               <strong>Clinical Protocol:</strong>
-              Maitland joint mobilizations (Grades II-IV), moist heat + TENS combo, and progressive pulley traction.
+              Maitland joint mobilizations (Grades I-IV), moist heat + TENS combo, and progressive therapeutic pulley
+              traction.
             </div>
           </div>
           <div class="pain-card-footer">
@@ -1972,45 +2475,140 @@
           </div>
         </div>
 
-        <!-- 5: Sports -->
-        <div class="pain-card" onclick="openBookingModal('Sports Injury Fast-Track', 'Clinic Visit')">
+        <!-- 7: Nerve Injury -->
+        <div class="pain-card" onclick="openBookingModal('Nerve Injury', 'Clinic Visit')">
           <div>
             <div class="pain-card-head">
-              <div class="pain-icon-avatar"><i class="fas fa-person-running"></i></div>
-              <span class="pain-badge-indicator" style="background:#DCFCE7; color:#15803D;">Fast-Track</span>
+              <div class="pain-icon-avatar"><i class="fas fa-bolt"></i></div>
+              <span class="pain-badge-indicator" style="background:#FFE4E6; color:#BE123C;">Neuro Rehab</span>
             </div>
-            <h3>Sports Injuries & Sprains</h3>
-            <p>Ligament sprains, hamstring/calf tears, runner's knee, tennis elbow, and athletic conditioning.</p>
+            <h3>Nerve Injury</h3>
+            <p>Peripheral neuropathy, radial/peroneal nerve palsy, carpal tunnel numbness, burning paresthesia, and
+              muscle weakness.</p>
             <div class="protocol-snippet">
               <strong>Clinical Protocol:</strong>
-              Acute PRICE protocol, Kinesiology dynamic taping, eccentric reloading, and agility proprioception drills.
+              Functional Electrical Stimulation (FES), gentle neurodynamic nerve flossing, sensory retraining, and motor
+              recovery.
             </div>
           </div>
           <div class="pain-card-footer">
-            <span class="timeline-est">⏱ Rapid Return to Play</span>
+            <span class="timeline-est">⏱ Dedicated Care Plan</span>
             <span style="font-weight:700; color:var(--primary); font-size:0.85rem;">Book Plan <i
                 class="fas fa-arrow-right"></i></span>
           </div>
         </div>
 
-        <!-- 6: Neuro -->
-        <div class="pain-card" onclick="openBookingModal('Neuro Stroke Protocol', 'Home Visit')">
+        <!-- 8: Arthritis -->
+        <div class="pain-card" onclick="openBookingModal('Arthritis', 'Clinic Visit')">
           <div>
             <div class="pain-card-head">
-              <div class="pain-icon-avatar"><i class="fas fa-brain"></i></div>
-              <span class="pain-badge-indicator" style="background:#FFE4E6; color:#BE123C;">Doorstep Focus</span>
+              <div class="pain-icon-avatar"><i class="fas fa-hands-holding-circle"></i></div>
+              <span class="pain-badge-indicator" style="background:#FEF3C7; color:#B45309;">Joint Inflammation</span>
             </div>
-            <h3>Stroke & Neuro Rehab</h3>
-            <p>Motor relearning for stroke hemiplegia, facial Bell's palsy, Parkinson's gait, and peripheral neuropathy.
-            </p>
+            <h3>Arthritis</h3>
+            <p>Chronic osteoarthritic joint stiffness, cartilage wear, rheumatoid flares, swelling, and reduced
+              weight-bearing tolerance.</p>
             <div class="protocol-snippet">
               <strong>Clinical Protocol:</strong>
-              Bobath neuro-developmental therapy, Functional Electrical Stimulation (FES), and bed-to-stand training.
+              Low-impact joint lubrication exercises, thermal hydrocollator therapy, IFT pain gating, and cartilage
+              protection.
             </div>
           </div>
           <div class="pain-card-footer">
-            <span class="timeline-est">⏱ Dedicated Home Care</span>
-            <span style="font-weight:700; color:var(--accent-coral); font-size:0.85rem;">Request Home Visit <i
+            <span class="timeline-est">⏱ Ongoing Care & Relief</span>
+            <span style="font-weight:700; color:var(--primary); font-size:0.85rem;">Book Plan <i
+                class="fas fa-arrow-right"></i></span>
+          </div>
+        </div>
+
+        <!-- 9: Sciatica -->
+        <div class="pain-card" onclick="openBookingModal('Sciatica', 'Clinic Visit')">
+          <div>
+            <div class="pain-card-head">
+              <div class="pain-icon-avatar"><i class="fas fa-bolt-lightning"></i></div>
+              <span class="pain-badge-indicator" style="background:#FEF2F2; color:#DC2626;">Nerve Radiating</span>
+            </div>
+            <h3>Sciatica</h3>
+            <p>Shooting, electric nerve pain traveling from the lower back through the glutes, hamstring, calf, and
+              tingling toes.</p>
+            <div class="protocol-snippet">
+              <strong>Clinical Protocol:</strong>
+              Mechanical spinal decompression, sciatic nerve flossing maneuvers, deep 4-pole IFT pain gating, and
+              piriformis release.
+            </div>
+          </div>
+          <div class="pain-card-footer">
+            <span class="timeline-est">⏱ Avg: 8 - 14 Sessions</span>
+            <span style="font-weight:700; color:var(--primary); font-size:0.85rem;">Book Plan <i
+                class="fas fa-arrow-right"></i></span>
+          </div>
+        </div>
+
+        <!-- 10: Fracture Stiffness -->
+        <div class="pain-card" onclick="openBookingModal('Fracture Stiffness', 'Clinic Visit')">
+          <div>
+            <div class="pain-card-head">
+              <div class="pain-icon-avatar"><i class="fas fa-crutch"></i></div>
+              <span class="pain-badge-indicator" style="background:#E0F2FE; color:#0369A1;">Post-Cast Rehab</span>
+            </div>
+            <h3>Fracture Stiffness</h3>
+            <p>Rigid post-immobilization stiffness, severe loss of motion, soft tissue contractures, and disuse muscle
+              weakness.</p>
+            <div class="protocol-snippet">
+              <strong>Clinical Protocol:</strong>
+              Gentle passive-to-active mobilization, paraffin wax thermal therapy, gradual joint stretching, and
+              progressive loading.
+            </div>
+          </div>
+          <div class="pain-card-footer">
+            <span class="timeline-est">⏱ Avg: 6 - 12 Sessions</span>
+            <span style="font-weight:700; color:var(--primary); font-size:0.85rem;">Book Plan <i
+                class="fas fa-arrow-right"></i></span>
+          </div>
+        </div>
+
+        <!-- 11: Disc Prolapse -->
+        <div class="pain-card" onclick="openBookingModal('Disc Prolapse', 'Clinic Visit')">
+          <div>
+            <div class="pain-card-head">
+              <div class="pain-icon-avatar"><i class="fas fa-layer-group"></i></div>
+              <span class="pain-badge-indicator" style="background:#FEE2E2; color:#991B1B;">Spinal Disc</span>
+            </div>
+            <h3>Disc Prolapse</h3>
+            <p>Herniated, bulging, or slipped disc (L4-S1 / C5-C7) with nerve root impingement, morning lock-up, and
+              radiating pain.</p>
+            <div class="protocol-snippet">
+              <strong>Clinical Protocol:</strong>
+              Non-surgical computerized mechanical disc traction, McKenzie spinal directional preference, and deep core
+              bracing.
+            </div>
+          </div>
+          <div class="pain-card-footer">
+            <span class="timeline-est">⏱ Avg: 10 - 16 Sessions</span>
+            <span style="font-weight:700; color:var(--primary); font-size:0.85rem;">Book Plan <i
+                class="fas fa-arrow-right"></i></span>
+          </div>
+        </div>
+
+        <!-- 12: Others -->
+        <div class="pain-card" onclick="openBookingModal('Others', 'Clinic Visit')">
+          <div>
+            <div class="pain-card-head">
+              <div class="pain-icon-avatar"><i class="fas fa-notes-medical"></i></div>
+              <span class="pain-badge-indicator" style="background:#F1F5F9; color:#475569;">Custom Evaluation</span>
+            </div>
+            <h3>Others (Unlisted Pain)</h3>
+            <p>Postural deformities, fibromyalgia, sports conditioning, general body stiffness, or conditions requiring
+              tailored care.</p>
+            <div class="protocol-snippet">
+              <strong>Clinical Protocol:</strong>
+              360-degree clinical orthopedic evaluation, personalized multi-modality regimen, and dedicated one-on-one
+              therapy.
+            </div>
+          </div>
+          <div class="pain-card-footer">
+            <span class="timeline-est">⏱ Tailored Plan</span>
+            <span style="font-weight:700; color:var(--primary); font-size:0.85rem;">Book Plan <i
                 class="fas fa-arrow-right"></i></span>
           </div>
         </div>
@@ -2444,14 +3042,18 @@
           <div class="input-block">
             <label for="mCondition">Primary Condition *</label>
             <select id="mCondition">
-              <option value="Lower Back & Sciatica">Lower Back & Sciatica</option>
-              <option value="Neck & Cervical">Neck & Cervical Spondylosis</option>
-              <option value="Knee Pain / Osteoarthritis">Knee Pain / Osteoarthritis</option>
-              <option value="Frozen Shoulder">Frozen Shoulder / Stiff Arm</option>
-              <option value="Sports Injury">Sports Injury / Sprain</option>
-              <option value="Stroke / Neuro Rehab">Stroke / Neuro Rehabilitation</option>
-              <option value="Post-Surgical Care">Post-Surgical Joint Care</option>
-              <option value="Other Condition">Other Pain Condition</option>
+              <option value="Cervical Spondylosis">Cervical Spondylosis</option>
+              <option value="Low Back Pain">Low Back Pain</option>
+              <option value="Knee Pain">Knee Pain</option>
+              <option value="Ankle Pain">Ankle Pain</option>
+              <option value="Tennis Elbow">Tennis Elbow</option>
+              <option value="Frozen Shoulder">Frozen Shoulder</option>
+              <option value="Nerve Injury">Nerve Injury</option>
+              <option value="Arthritis">Arthritis</option>
+              <option value="Sciatica">Sciatica</option>
+              <option value="Fracture Stiffness">Fracture Stiffness</option>
+              <option value="Disc Prolapse">Disc Prolapse</option>
+              <option value="Others">Others</option>
             </select>
           </div>
           <div class="input-block">
@@ -2495,7 +3097,7 @@
           <div class="footer-brand-title">
             <div class="logo-symbol" style="width:36px; height:36px; font-size:1rem;"><i class="fas fa-heart-pulse"></i>
             </div>
-            <span>VIKALP PT</span>
+            <span>VIKALP PHYSIOTHERAPY</span>
           </div>
           <p style="font-size:0.925rem; line-height:1.6; color:#94A3B8; max-width:320px;">
             Precision clinical physiotherapy and doorstep home rehabilitation. Delivering science-backed pain relief and
@@ -2573,10 +3175,12 @@
       if (open) {
         drawer.classList.add('open');
         backdrop.classList.add('open');
+        openBtn.setAttribute('aria-expanded', 'true');
         document.body.style.overflow = 'hidden';
       } else {
         drawer.classList.remove('open');
         backdrop.classList.remove('open');
+        openBtn.setAttribute('aria-expanded', 'false');
         document.body.style.overflow = '';
       }
     }
@@ -2584,6 +3188,14 @@
     openBtn.addEventListener('click', () => toggleDrawer(true));
     closeBtn.addEventListener('click', () => toggleDrawer(false));
     backdrop.addEventListener('click', () => toggleDrawer(false));
+
+    // Global keyboard Escape handler for drawer and modal
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        if (drawer.classList.contains('open')) toggleDrawer(false);
+        if (modal && modal.classList.contains('open')) closeBookingModal();
+      }
+    });
 
     // 2. Pricing Switcher
     function switchPricingMode(mode) {
@@ -2639,6 +3251,18 @@
 
       if (location) {
         document.getElementById('mCareLocation').value = location;
+      }
+
+      if (condition) {
+        const condSelect = document.getElementById('mCondition');
+        if (condSelect) {
+          for (let opt of condSelect.options) {
+            if (opt.value.toLowerCase() === condition.toLowerCase() || opt.text.toLowerCase() === condition.toLowerCase()) {
+              condSelect.value = opt.value;
+              break;
+            }
+          }
+        }
       }
 
       const dateInput = document.getElementById('mDate');
